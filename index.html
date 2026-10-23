@@ -3,271 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Tax & Financial Advisory</title>
-    <!-- Google Fonts for a clean, trustworthy look -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Tax & Financial Advisory Services</title>
     <style>
         :root {
-            --primary: #2C4A3E; /* Deep Sage / Forest Green */
-            --accent: #D4A373; /* Warm Gold / Terracotta */
-            --bg-color: #FBF9F5; /* Warm Cream */
-            --card-bg: #FFFFFF;
-            --text-dark: #2B2D42;
-            --text-light: #6C757D;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --light-bg: #f8fafc;
+            --text-color: #334155;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
         header {
-            background-color: var(--card-bg);
-            padding: 20px 40px;
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-family: 'Playfair Display', serif;
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
         }
 
         nav a {
+            color: white;
             text-decoration: none;
-            color: var(--text-dark);
-            margin-left: 25px;
+            margin-left: 2rem;
             font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
         }
 
         .hero {
-            padding: 80px 20px;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 6rem 2rem;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            margin-bottom: 35px;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
         }
 
         .btn {
-            background-color: var(--primary);
+            background: var(--accent-color);
             color: white;
-            padding: 14px 28px;
-            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: background 0.3s;
+            font-weight: bold;
         }
 
-        .btn:hover {
-            background-color: #1e332a;
+        section {
+            padding: 5rem 10%;
         }
 
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            margin-left: 10px;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        .services-section {
+            background: var(--light-bg);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
         }
 
-        .services-grid {
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
-        .service-card {
-            background: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            transition: transform 0.3s;
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-color);
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
         }
 
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+        .testimonials-section {
+            background: white;
         }
 
-        .service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .testimonial-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
         }
 
-        .pricing-section {
-            background-color: #F3EFEA;
-            padding: 80px 20px;
+        .testimonial-card p {
+            margin-bottom: 1rem;
         }
 
-        table {
-            width: 100%;
-            background: var(--card-bg);
-            border-collapse: collapse;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        th {
-            background-color: var(--primary);
-            color: white;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
+        .testimonial-author {
+            font-weight: bold;
+            font-style: normal;
+            color: var(--primary-color);
         }
 
         footer {
+            background: var(--primary-color);
+            color: white;
             text-align: center;
-            padding: 40px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            background-color: var(--card-bg);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav { display: none; }
+            padding: 2rem;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header & Navigation -->
     <header>
-        <a href="index.html" class="logo">Your Name, CPA / Advisor</a>
+        <h1>Apex Tax & Financial</h1>
         <nav>
-            <a href="index.html">Home</a>
             <a href="#services">Services</a>
-            <a href="#pricing">Pricing</a>
-            <a href="blog.html">Journal</a>
-            <a href="human-design.html">Human Design</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Tax Season, Without the Stress.</h1>
-        <p>Friendly, transparent tax preparation and financial advisory for individuals and small businesses. We take the weight off your shoulders and keep more money in your pocket.</p>
-        <a href="#pricing" class="btn">View Services & Pricing</a>
-        <a href="https://g.co/yourbusiness" target="_blank" class="btn btn-outline">Google Reviews</a>
+        <h2>Expert Tax & Financial Advisory</h2>
+        <p>Providing professional corporate and personal tax preparation, bookkeeping, and strategic financial planning.</p>
+        <a href="#contact" class="btn">Get a Quote</a>
     </section>
 
-    <div class="container" id="services">
-        <h2 class="section-title">How I Can Help You</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Individual Tax Prep</h3>
-                <p>Stress-free federal and state tax filing optimized to maximize your refund, ensure full compliance, and answer every question you have along the way.</p>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Corporate & Personal Tax</h3>
+                <p>Comprehensive T2 corporate filings, T1 personal returns, multi-year catch-up solutions, and specialized deductions.</p>
             </div>
-            <div class="service-card">
-                <h3>Small Business Advisory</h3>
-                <p>Comprehensive bookkeeping, write-off maximization, and year-round tax strategy designed specifically for entrepreneurs and growing LLCs.</p>
+            <div class="card">
+                <h3>Bookkeeping & Cleanup</h3>
+                <p>Fully reconciled QuickBooks accounts, bank reconciliations, and historical catch-up bookkeeping for your business.</p>
             </div>
-            <div class="service-card">
-                <h3>1-on-1 Financial Strategy</h3>
-                <p>Proactive guidance on budgeting, cash flow management, wealth-building, and long-term financial goal-setting tailored to your life stage.</p>
+            <div class="card">
+                <h3>Financial Advisory</h3>
+                <p>Strategic financial guidance, tax optimization, and proactive planning to maximize your wealth and compliance.</p>
             </div>
-        </div>
-    </div>
-
-    <section class="pricing-section" id="pricing">
-        <div class="container" style="padding: 0;">
-            <h2 class="section-title">Transparent Pricing</h2>
-            <p style="text-align: center; color: var(--text-light); margin-bottom: 30px;">No hidden fees or surprise invoices. Clear rates for clear work.</p>
-            <table>
-                <tr>
-                    <th>Service Offering</th>
-                    <th>Starting At</th>
-                    <th>What's Included</th>
-                </tr>
-                <tr>
-                    <td><strong>Individual Tax Return</strong></td>
-                    <td>$250</td>
-                    <td>Federal & state filing, electronic submission, prior-year review, and audit support check.</td>
-                </tr>
-                <tr>
-                    <td><strong>Small Business Tax & Books</strong></td>
-                    <td>$300 / mo</td>
-                    <td>Monthly expense categorization, quarterly tax projections, and annual business tax return filing.</td>
-                </tr>
-                <tr>
-                    <td><strong>Financial Advisory Session</strong></td>
-                    <td>$175 / hr</td>
-                    <td>Deep-dive strategy consultation, customized financial roadmap, and personalized Q&A session.</td>
-                </tr>
-            </table>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Your Name Financial Advisory. Hosted freely via GitHub Pages.</p>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div class="grid-container">
+            <div class="testimonial-card">
+                <p>&ldquo;Getting our multi-year corporate and personal returns sorted out was seamless. Extremely professional, thorough, and efficient!&rdquo;</p>
+                <div class="testimonial-author">— Frank M., Business Owner</div>
+            </div>
+            <div class="testimonial-card">
+                <p>&ldquo;Handled our QuickBooks cleanup and tax filings without a hitch. Saved us a ton of stress and tax liability. Highly recommended.&rdquo;</p>
+                <div class="testimonial-author">— Sarah T., Corporate Client</div>
+            </div>
+            <div class="testimonial-card">
+                <p>&ldquo;Clear communication, fair package pricing, and exceptional attention to detail. Absolute peace of mind every tax season.&rdquo;</p>
+                <div class="testimonial-author">— David K., Freelance Professional</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 Apex Tax & Financial Advisory. All rights reserved.</p>
     </footer>
 
 </body>
