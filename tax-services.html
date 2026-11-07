@@ -1,119 +1,193 @@
-<!-- ================= CLIENT PORTAL & INQUIRY FORM ================= -->
-<div class="inquiry-form-container" style="max-width: 700px; margin: 0 auto; padding: 20px; color: #fff;">
-  <h2>Client Portal & Inquiry Form</h2>
-  <p style="margin-bottom: 20px; color: #ccc;">Submit your details and optional documents to get started with our services.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Services & Financial Advisory | Sally Mentorship Ltd</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-950">
 
-  <form id="tax-inquiry-form">
+  <!-- Header Navigation -->
+  <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 text-lg sm:text-xl font-semibold tracking-wide text-white shrink-0">
+        <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-9 w-auto object-contain rounded">
+        <span>Sally G Tadina</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-white transition whitespace-nowrap">Human Design Mentorship</a>
+        <a href="tax-services.html" class="text-white border-b-2 border-amber-400 pb-0.5 whitespace-nowrap">Income Tax and Financial Advisory</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-16">
     
-    <!-- Full Name -->
-    <div class="form-group" style="margin-bottom: 15px;">
-      <label for="full-name">Full Name *</label>
-      <input type="text" id="full-name" name="full_name" placeholder="John Doe" required style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
+    <!-- Page Header -->
+    <div class="text-center mb-16">
+      <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">Professional Financial Services</span>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-4 text-white">Income Tax & Financial Advisory</h1>
+      <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        Expert tax preparation, corporate solutions, bookkeeping, and comprehensive financial planning tailored for individuals and growing businesses.
+      </p>
     </div>
 
-    <!-- Email Address -->
-    <div class="form-group" style="margin-bottom: 15px;">
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" placeholder="john@example.com" required style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
+        <div class="text-amber-400 text-2xl mb-3">📄</div>
+        <h3 class="text-lg font-bold text-white mb-2">T1 Personal Tax Return</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Accurate and thorough personal tax preparation to ensure you maximize your returns and stay fully compliant with the CRA.</p>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
+        <div class="text-amber-400 text-2xl mb-3">🏢</div>
+        <h3 class="text-lg font-bold text-white mb-2">T2 Corporate Tax Return</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Specialized corporate tax filing and planning designed for small to medium-sized businesses and incorporated professionals.</p>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
+        <div class="text-amber-400 text-2xl mb-3">🚀</div>
+        <h3 class="text-lg font-bold text-white mb-2">Business Setup & CRA Registration</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Helping new entrepreneurs get started on the right foot with proper business setup, incorporation guidance, and CRA account registrations.</p>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
+        <div class="text-amber-400 text-2xl mb-3">📊</div>
+        <h3 class="text-lg font-bold text-white mb-2">Bookkeeping, Payroll & Accounting</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Complete back-office management including day-to-day bookkeeping, payroll administration, and organized financial accounting.</p>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur md:col-span-2">
+        <div class="text-amber-400 text-2xl mb-3">💡</div>
+        <h3 class="text-lg font-bold text-white mb-2">Financial Planning & Strategy</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Forward-looking financial guidance to help you manage wealth, structure growth, and secure long-term financial stability for you and your business.</p>
+      </div>
     </div>
 
-    <!-- Phone Number -->
-    <div class="form-group" style="margin-bottom: 15px;">
-      <label for="phone">Phone Number *</label>
-      <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
+    <!-- Client Submission / Contact Portal Form -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-xl">
+      <h2 class="text-2xl font-bold text-white mb-2">Client Portal & Inquiry Form</h2>
+      <p class="text-slate-400 text-sm mb-8">Submit your details and optional documents to get started with our services.</p>
+
+      <form id="taxForm" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="fullName" class="block text-sm font-medium text-slate-300 mb-2">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="John Doe">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email Address *</label>
+            <input type="email" id="email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="john@example.com">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="(555) 000-0000">
+          </div>
+          <div>
+            <label for="serviceType" class="block text-sm font-medium text-slate-300 mb-2">Service Needed *</label>
+            <select id="serviceType" name="serviceType" required onchange="handleServiceChange(this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+              <option value="">Select a service...</option>
+              <option value="T1 Personal Tax">T1 Personal Tax Return</option>
+              <option value="T2 Corporate Tax">T2 Corporate Tax Return</option>
+              <option value="Business Setup & CRA">Business Setup & CRA Registration</option>
+              <option value="Bookkeeping & Payroll">Bookkeeping, Payroll & Accounting</option>
+              <option value="Financial Planning">Financial Planning</option>
+              <option value="Other">Other / Multiple Services</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Conditional Section for Tax Returns -->
+        <div id="taxConditionalSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">Tax Return Details</h3>
+          <div>
+            <label class="block text-sm font-medium text-slate-300 mb-2">Tax Year(s) Required *</label>
+            <input type="text" id="taxYears" name="taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025, or 2024 & 2025">
+          </div>
+        </div>
+
+        <!-- Optional Document Upload -->
+        <div>
+          <label for="tax_documents" class="block text-sm font-medium text-slate-300 mb-2">Upload Supporting Documents (Optional)</label>
+          <input type="file" id="tax_documents" name="tax_documents" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-slate-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-950 hover:file:bg-amber-300 cursor-pointer">
+          <p class="text-xs text-slate-500 mt-1">You can attach tax slips, financial statements, or receipts if available.</p>
+        </div>
+
+        <!-- How did you hear about us? -->
+        <div>
+          <label for="referral_source" class="block text-sm font-medium text-slate-300 mb-2">How did you hear about us?</label>
+          <select id="referral_source" name="referral_source" onchange="toggleOtherSource(this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+            <option value="">Select an option...</option>
+            <option value="Google Search">Google Search</option>
+            <option value="Referral">Referral</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Hidden "Other" specification text box -->
+        <div id="other_source_container" class="hidden">
+          <label for="other_source_text" class="block text-sm font-medium text-slate-300 mb-2">Please specify:</label>
+          <input type="text" id="other_source_text" name="other_source_text" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Please specify how you heard about us">
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Additional Details / Message</label>
+          <textarea id="message" name="message" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Tell us a bit about your situation or goals..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg">
+          Submit Inquiry
+        </button>
+      </form>
     </div>
 
-    <!-- Service Needed (Triggers Toggle) -->
-    <div class="form-group" style="margin-bottom: 15px;">
-      <label for="service-needed">Service Needed *</label>
-      <select id="service-needed" name="service_needed" required onchange="toggleTaxQuestions()" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
-        <option value="">Select a service...</option>
-        <option value="t1">T1 Personal Tax Return</option>
-        <option value="t2">T2 Corporate Tax Return</option>
-        <option value="business-setup">Business Setup & CRA Registration</option>
-        <option value="bookkeeping">Bookkeeping, Payroll & Accounting</option>
-        <option value="financial-planning">Financial Planning & Strategy</option>
-        <option value="other">Other / Multiple Services</option>
-      </select>
-    </div>
+  </main>
 
-    <!-- Upload Supporting Documents -->
-    <div class="form-group" style="margin-bottom: 15px;">
-      <label for="documents">Upload Supporting Documents (Optional)</label>
-      <input type="file" id="documents" name="documents" style="display: block; margin-top: 5px;">
-      <small style="color: #aaa;">You can attach tax slips, financial statements, or receipts if available.</small>
-    </div>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 mt-24 py-8 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved.</p>
+  </footer>
 
-    <!-- Referral Source -->
-    <div class="form-group" style="margin-bottom: 15px;">
-      <label for="referral">How did you hear about us?</label>
-      <select id="referral" name="referral" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
-        <option value="">Select an option...</option>
-        <option value="google">Google Search</option>
-        <option value="referral">Referral</option>
-        <option value="social">Social Media</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-
-    <!-- Additional Details / Message -->
-    <div class="form-group" style="margin-bottom: 20px;">
-      <label for="message">Additional Details / Message</label>
-      <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your situation or goals..." style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;"></textarea>
-    </div>
-
-
-    <!-- ================= T1 CONDITIONAL SECTION ================= -->
-    <div id="t1-questions" class="conditional-tax-section" style="display: none; margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #444;">
-      <h4 style="margin-bottom: 15px; color: #f0c040;">T1 Personal Tax Details</h4>
+  <!-- Script for Conditional Logic & Toggles -->
+  <script>
+    function handleServiceChange(val) {
+      const taxSection = document.getElementById('taxConditionalSection');
+      const taxYearsInput = document.getElementById('taxYears');
       
-      <div class="form-group" style="margin-bottom: 15px;">
-        <label for="marital-status">Marital Status (as of Dec 31) *</label>
-        <select id="marital-status" name="marital_status" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
-          <option value="">Select status...</option>
-          <option value="single">Single</option>
-          <option value="married">Married</option>
-          <option value="common-law">Common-Law</option>
-          <option value="separated">Separated</option>
-          <option value="divorced">Divorced</option>
-          <option value="widowed">Widowed</option>
-        </select>
-      </div>
+      if (val === 'T1 Personal Tax' || val === 'T2 Corporate Tax') {
+        taxSection.classList.remove('hidden');
+        taxYearsInput.setAttribute('required', 'true');
+      } else {
+        taxSection.classList.add('hidden');
+        taxYearsInput.removeAttribute('required');
+        taxYearsInput.value = '';
+      }
+    }
 
-      <div class="form-group" style="margin-bottom: 15px;">
-        <label>Are you a Canadian citizen? *</label>
-        <div style="margin-top: 5px;">
-          <label><input type="radio" name="canadian_citizen" value="yes"> Yes</label>
-          <label style="margin-left: 20px;"><input type="radio" name="canadian_citizen" value="no"> No</label>
-        </div>
-      </div>
+    function toggleOtherSource(val) {
+      const container = document.getElementById('other_source_container');
+      const otherInput = document.getElementById('other_source_text');
+      if (val === 'Other') {
+        container.classList.remove('hidden');
+        otherInput.setAttribute('required', 'true');
+      } else {
+        container.classList.add('hidden');
+        otherInput.removeAttribute('required');
+        otherInput.value = '';
+      }
+    }
+  </script>
 
-      <div class="form-group" style="margin-bottom: 15px;">
-        <label>Did you reside in Canada for all of the tax year? *</label>
-        <div style="margin-top: 5px;">
-          <label><input type="radio" name="reside_canada" value="yes"> Yes</label>
-          <label style="margin-left: 20px;"><input type="radio" name="reside_canada" value="no"> No</label>
-        </div>
-      </div>
-
-      <div class="form-group" style="margin-bottom: 5px;">
-        <label>Did you own specified foreign property over $100,000 at any time during the year?</label>
-        <div style="margin-top: 5px;">
-          <label><input type="radio" name="foreign_property" value="yes"> Yes</label>
-          <label style="margin-left: 20px;"><input type="radio" name="foreign_property" value="no"> No</label>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ================= T2 CONDITIONAL SECTION ================= -->
-    <div id="t2-questions" class="conditional-tax-section" style="display: none; margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #444;">
-      <h4 style="margin-bottom: 15px; color: #f0c040;">T2 Corporate Tax Details</h4>
-
-      <div class="form-group" style="margin-bottom: 15px;">
-        <label for="corp-name">Corporation Legal Name *</label>
-        <input type="text" id="corp-name" name="corp_name" placeholder="Enter corporation name" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
-      </div>
-
-      <div class="form-group" style="margin-bottom: 15px;">
-        <label for="
+</body>
+</html>
