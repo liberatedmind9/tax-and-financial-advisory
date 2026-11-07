@@ -136,7 +136,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Marital Status *</label>
-              <select id="t1_maritalStatus" name="t1_maritalStatus" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+              <select id="t1_maritalStatus" name="t1_maritalStatus" onchange="handleMaritalChange(this.value, 't1')" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
                 <option value="">Select status...</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
@@ -150,6 +150,13 @@
               <label class="block text-sm font-medium text-slate-300 mb-1">Residency Status for Tax Purposes *</label>
               <input type="text" id="t1_citizenship" name="t1_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Citizen / Resident">
             </div>
+          </div>
+
+          <!-- Marital Status Change Date (Conditional for T1) -->
+          <div id="t1_maritalChangeContainer" class="hidden bg-slate-900/80 border border-slate-800 p-4 rounded-lg">
+            <label class="block text-sm font-medium text-amber-300 mb-1">Date of Marital Status Change *</label>
+            <input type="date" id="t1_maritalChangeDate" name="t1_maritalChangeDate" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+            <p class="text-xs text-slate-400 mt-1">Required by CRA if your marital status changed during or prior to the tax year.</p>
           </div>
 
           <div>
@@ -180,7 +187,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Marital Status *</label>
-              <select id="t1b_maritalStatus" name="t1b_maritalStatus" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+              <select id="t1b_maritalStatus" name="t1b_maritalStatus" onchange="handleMaritalChange(this.value, 't1b')" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
                 <option value="">Select status...</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
@@ -194,6 +201,13 @@
               <label class="block text-sm font-medium text-slate-300 mb-1">Residency Status *</label>
               <input type="text" id="t1b_citizenship" name="t1b_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Resident">
             </div>
+          </div>
+
+          <!-- Marital Status Change Date (Conditional for T1 Business) -->
+          <div id="t1b_maritalChangeContainer" class="hidden bg-slate-900/80 border border-slate-800 p-4 rounded-lg">
+            <label class="block text-sm font-medium text-amber-300 mb-1">Date of Marital Status Change *</label>
+            <input type="date" id="t1b_maritalChangeDate" name="t1b_maritalChangeDate" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+            <p class="text-xs text-slate-400 mt-1">Required by CRA if your marital status changed during or prior to the tax year.</p>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -320,110 +334,4 @@
         </div>
 
         <div>
-          <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Additional Details / Message</label>
-          <textarea id="message" name="message" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Tell us a bit about your situation or goals..."></textarea>
-        </div>
-
-        <button type="submit" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg">
-          Submit Inquiry
-        </button>
-      </form>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/80 mt-24 py-8 text-center text-xs text-slate-500">
-    <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved.</p>
-  </footer>
-
-  <!-- Script for Conditional Logic & Toggles -->
-  <script>
-    function handleServiceChange(val) {
-      const t1Sec = document.getElementById('t1PersonalSection');
-      const t1bSec = document.getElementById('t1BusinessSection');
-      const t2Sec = document.getElementById('t2CorporateSection');
-      const invSec = document.getElementById('investmentSection');
-
-      // Hide all first
-      t1Sec.classList.add('hidden');
-      t1bSec.classList.add('hidden');
-      t2Sec.classList.add('hidden');
-      invSec.classList.add('hidden');
-
-      // Clear required flags
-      document.getElementById('t1_taxYears').removeAttribute('required');
-      document.getElementById('t1_sin').removeAttribute('required');
-      document.getElementById('t1_dob').removeAttribute('required');
-      document.getElementById('t1_maritalStatus').removeAttribute('required');
-      document.getElementById('t1_citizenship').removeAttribute('required');
-      document.getElementById('t1_address').removeAttribute('required');
-
-      document.getElementById('t1b_taxYears').removeAttribute('required');
-      document.getElementById('t1b_sin').removeAttribute('required');
-      document.getElementById('t1b_dob').removeAttribute('required');
-      document.getElementById('t1b_maritalStatus').removeAttribute('required');
-      document.getElementById('t1b_citizenship').removeAttribute('required');
-      document.getElementById('t1b_structure').removeAttribute('required');
-      document.getElementById('t1b_businessName').removeAttribute('required');
-      document.getElementById('t1b_startDate').removeAttribute('required');
-      document.getElementById('t1b_fiscalYear').removeAttribute('required');
-      document.getElementById('t1b_address').removeAttribute('required');
-
-      document.getElementById('t2_taxYears').removeAttribute('required');
-      document.getElementById('t2_corpName').removeAttribute('required');
-      document.getElementById('t2_businessNumber').removeAttribute('required');
-      document.getElementById('t2_incorpDate').removeAttribute('required');
-      document.getElementById('t2_fiscalEnd').removeAttribute('required');
-      document.getElementById('t2_corpDetails').removeAttribute('required');
-
-      // Show relevant tax section & investment section if any tax return is picked
-      if (val === 'T1 Personal Tax') {
-        t1Sec.classList.remove('hidden');
-        invSec.classList.remove('hidden');
-        document.getElementById('t1_taxYears').setAttribute('required', 'true');
-        document.getElementById('t1_sin').setAttribute('required', 'true');
-        document.getElementById('t1_dob').setAttribute('required', 'true');
-        document.getElementById('t1_maritalStatus').setAttribute('required', 'true');
-        document.getElementById('t1_citizenship').setAttribute('required', 'true');
-        document.getElementById('t1_address').setAttribute('required', 'true');
-      } else if (val === 'T1 Personal & Business') {
-        t1bSec.classList.remove('hidden');
-        invSec.classList.remove('hidden');
-        document.getElementById('t1b_taxYears').setAttribute('required', 'true');
-        document.getElementById('t1b_sin').setAttribute('required', 'true');
-        document.getElementById('t1b_dob').setAttribute('required', 'true');
-        document.getElementById('t1b_maritalStatus').setAttribute('required', 'true');
-        document.getElementById('t1b_citizenship').setAttribute('required', 'true');
-        document.getElementById('t1b_structure').setAttribute('required', 'true');
-        document.getElementById('t1b_businessName').setAttribute('required', 'true');
-        document.getElementById('t1b_startDate').setAttribute('required', 'true');
-        document.getElementById('t1b_fiscalYear').setAttribute('required', 'true');
-        document.getElementById('t1b_address').setAttribute('required', 'true');
-      } else if (val === 'T2 Corporate Tax') {
-        t2Sec.classList.remove('hidden');
-        document.getElementById('t2_taxYears').setAttribute('required', 'true');
-        document.getElementById('t2_corpName').setAttribute('required', 'true');
-        document.getElementById('t2_businessNumber').setAttribute('required', 'true');
-        document.getElementById('t2_incorpDate').setAttribute('required', 'true');
-        document.getElementById('t2_fiscalEnd').setAttribute('required', 'true');
-        document.getElementById('t2_corpDetails').setAttribute('required', 'true');
-      }
-    }
-
-    function toggleOtherSource(val) {
-      const container = document.getElementById('other_source_container');
-      const otherInput = document.getElementById('other_source_text');
-      if (val === 'Other') {
-        container.classList.remove('hidden');
-        otherInput.setAttribute('required', 'true');
-      } else {
-        container.classList.add('hidden');
-        otherInput.removeAttribute('required');
-        otherInput.value = '';
-      }
-    }
-  </script>
-
-</body>
-</html>
+          <label for="message" class="block text-sm font-
