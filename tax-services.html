@@ -16,20 +16,14 @@
 
   <!-- Header Navigation -->
   <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
-      <a href="index.html" class="flex items-center gap-2.5 text-base sm:text-xl font-semibold tracking-wide text-white shrink-0">
-        <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-8 sm:h-9 w-auto object-contain rounded">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 text-lg sm:text-xl font-semibold tracking-wide text-white shrink-0">
+        <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-9 w-auto object-contain rounded">
         <span>Sally G Tadina</span>
       </a>
-      <nav class="flex items-center gap-4 sm:gap-8 text-xs sm:text-sm font-medium text-slate-300">
-        <a href="index.html" class="hover:text-white transition whitespace-nowrap">
-          <span class="sm:hidden">Mentorship</span>
-          <span class="hidden sm:inline">Human Design Mentorship</span>
-        </a>
-        <a href="tax-services.html" class="text-white border-b-2 border-amber-400 pb-0.5 whitespace-nowrap">
-          <span class="sm:hidden">Tax Services</span>
-          <span class="hidden sm:inline">Income Tax and Financial Advisory</span>
-        </a>
+      <nav class="flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-white transition whitespace-nowrap">Human Design Mentorship</a>
+        <a href="tax-services.html" class="text-white border-b-2 border-amber-400 pb-0.5 whitespace-nowrap">Income Tax and Financial Advisory</a>
       </nav>
     </div>
   </header>
@@ -146,3 +140,148 @@
             <option value="Divorced">Divorced</option>
             <option value="Widowed">Widowed</option>
           </select>
+        </div>
+
+        <!-- Tax Years (Dynamically generated checkboxes) -->
+        <div>
+          <label class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Tax Year(s) Filing For * (Check all that apply)</label>
+          <div id="taxYearsContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950 border border-slate-800 rounded-lg p-3.5">
+            <!-- Dynamically populated via script -->
+          </div>
+        </div>
+
+        <!-- Document Uploads -->
+        <div>
+          <label for="taxFiles" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Upload Tax Slips & Documents (T4s, T5s, Receipts, NOA) *</label>
+          <input type="file" id="taxFiles" multiple required accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-xs sm:text-sm text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-xs sm:file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-950 hover:file:bg-amber-300 transition cursor-pointer" />
+        </div>
+
+        <!-- Additional Notes -->
+        <div>
+          <label for="notes" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Additional Comments / Notes</label>
+          <textarea id="notes" rows="3" placeholder="Any specific details about your return..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition"></textarea>
+        </div>
+
+        <!-- Consent Clause -->
+        <div class="bg-slate-950 border border-slate-800 rounded-lg p-3.5 text-xs text-slate-400 space-y-2.5">
+          <p><strong>Declaration & Consent:</strong> I declare that the information provided is accurate and complete to the best of my knowledge, and I authorize Sally Mentorship Ltd to prepare and file my tax return.</p>
+          <label class="flex items-start gap-2.5 cursor-pointer text-slate-200 font-medium">
+            <input type="checkbox" id="consentCheck" required class="mt-0.5 h-4 w-4 accent-amber-400 shrink-0">
+            <span>I agree to the declaration and consent terms above *</span>
+          </label>
+        </div>
+
+        <!-- Electronic Signature -->
+        <div>
+          <label for="signature" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Client Electronic Signature (Type Full Legal Name as Signature) *</label>
+          <input type="text" id="signature" required placeholder="Jane Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition italic font-serif" />
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg cursor-pointer text-sm sm:text-base">Submit Documents Securely</button>
+      </form>
+
+      <div id="statusMessage" class="mt-4 text-center font-medium text-xs sm:text-sm"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 mt-16 sm:mt-24 py-8 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved. | <a href="index.html" class="hover:text-slate-300 underline">Back to Mentorship Home</a></p>
+  </footer>
+
+  <!-- Supabase Form Handler Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentYear = new Date().getFullYear();
+      const container = document.getElementById('taxYearsContainer');
+      
+      const yearsToShow = [
+        currentYear,
+        currentYear - 1,
+        currentYear - 2,
+        `${currentYear - 3} / Prior`
+      ];
+
+      yearsToShow.forEach((yr) => {
+        const val = String(yr);
+        const label = document.createElement('label');
+        label.className = "flex items-center gap-2 text-xs sm:text-sm text-slate-300 cursor-pointer select-none py-1";
+        label.innerHTML = `<input type="checkbox" name="taxYears" value="${val}" class="h-4 w-4 accent-amber-400 shrink-0"> ${val}`;
+        container.appendChild(label);
+      });
+    });
+
+    const SUPABASE_URL = 'https://lgulnmfhmlpykssispbc.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_UFgrmAPlNDxeqt6vO0NzVQ_X4_c9-Oe';
+    
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const form = document.getElementById('taxForm');
+    const statusMsg = document.getElementById('statusMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Encrypting & Uploading Files...";
+      statusMsg.innerText = "";
+
+      try {
+        const selectedYears = Array.from(document.querySelectorAll('input[name="taxYears"]:checked'))
+          .map(cb => cb.value);
+
+        if (selectedYears.length === 0) {
+          throw new Error("Please select at least one tax year.");
+        }
+
+        const filesInput = document.getElementById('taxFiles');
+        const files = Array.from(filesInput.files);
+        const uploadedPaths = [];
+
+        const datePrefix = new Date().toISOString().split('T')[0];
+        const fullNameStr = `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
+        const sanitizedName = fullNameStr.replace(/[^a-zA-Z0-9]/g, '_');
+        const folderPath = `${datePrefix}_${sanitizedName}_${Date.now()}`;
+
+        // 1. Upload files to private Supabase bucket
+        for (const file of files) {
+          const filePath = `${folderPath}/${file.name}`;
+          const { data, error } = await supabaseClient.storage
+            .from('client-tax-docs')
+            .upload(filePath, file, { cacheControl: '3600', upsert: false });
+
+          if (error) throw error;
+          uploadedPaths.push(data.path);
+        }
+
+        // 2. Save complete metadata into Supabase table
+        const { error: dbError } = await supabaseClient
+          .from('tax_submissions')
+          .insert([{
+            full_name: fullNameStr,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            tax_year: selectedYears.join(', '),
+            notes: `DOB: ${document.getElementById('dob').value} | SIN: ${document.getElementById('sin').value} | Citizenship: ${document.getElementById('citizenship').value} | Address: ${document.getElementById('address').value} | Marital Status: ${document.getElementById('maritalStatus').value} | Notes: ${document.getElementById('notes').value} | Signature: ${document.getElementById('signature').value}`,
+            file_paths: uploadedPaths
+          }]);
+
+        if (dbError) throw dbError;
+
+        statusMsg.style.color = "#34d399";
+        statusMsg.innerText = "Success! Your tax documents have been securely submitted.";
+        form.reset();
+
+      } catch (err) {
+        console.error(err);
+        statusMsg.style.color = "#f87171";
+        statusMsg.innerText = "Submission failed: " + (err.message || "Please check your network and try again.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit Documents Securely";
+      }
+    });
+  </script>
+
+</body>
+</html>
