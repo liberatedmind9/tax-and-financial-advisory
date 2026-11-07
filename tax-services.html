@@ -142,14 +142,11 @@
           </select>
         </div>
 
-        <!-- Tax Years (Multi-select check boxes) -->
+        <!-- Tax Years (Dynamically generated checkboxes) -->
         <div>
           <label class="block text-sm font-semibold text-slate-200 mb-2">Tax Year(s) Filing For * (Check all that apply)</label>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-950 border border-slate-800 rounded-lg p-4">
-            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2025" class="accent-amber-400"> 2025</label>
-            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2024" class="accent-amber-400"> 2024</label>
-            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2023" class="accent-amber-400"> 2023</label>
-            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2022" class="accent-amber-400"> 2022 / Prior</label>
+          <div id="taxYearsContainer" class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-950 border border-slate-800 rounded-lg p-4">
+            <!-- Dynamically populated via script -->
           </div>
         </div>
 
@@ -194,6 +191,28 @@
 
   <!-- Supabase Form Handler Script -->
   <script>
+    // Automatically generate tax years based on the current calendar year
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentYear = new Date().getFullYear();
+      const container = document.getElementById('taxYearsContainer');
+      
+      // Generate options: Current Year, Current Year - 1, Current Year - 2, and Prior
+      const yearsToShow = [
+        currentYear,
+        currentYear - 1,
+        currentYear - 2,
+        `${currentYear - 3} / Prior`
+      ];
+
+      yearsToShow.forEach((yr, index) => {
+        const val = String(yr);
+        const label = document.createElement('label');
+        label.className = "flex items-center gap-2 text-sm text-slate-300 cursor-pointer";
+        label.innerHTML = `<input type="checkbox" name="taxYears" value="${val}" class="accent-amber-400"> ${val}`;
+        container.appendChild(label);
+      });
+    });
+
     const SUPABASE_URL = 'https://lgulnmfhmlpykssispbc.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_UFgrmAPlNDxeqt6vO0NzVQ_X4_c9-Oe';
     
