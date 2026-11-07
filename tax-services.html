@@ -85,7 +85,7 @@
       <form id="taxForm" class="space-y-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
-            <label for="fullName" class="block text-sm font-medium text-slate-300 mb-2">Full Name *</label>
+            <label for="fullName" class="block text-sm font-medium text-slate-300 mb-2">Full Legal Name *</label>
             <input type="text" id="fullName" name="fullName" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="John Doe">
           </div>
           <div>
@@ -116,12 +116,24 @@
 
         <!-- CONDITIONAL SECTION: T1 PERSONAL TAX -->
         <div id="t1PersonalSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal Tax Information</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal Tax Intake (CRA Required)</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) Required *</label>
               <input type="text" id="t1_taxYears" name="t1_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
             </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Social Insurance Number (SIN) *</label>
+              <input type="text" id="t1_sin" name="t1_sin" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="9-digit SIN">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Date of Birth *</label>
+              <input type="date" id="t1_dob" name="t1_dob" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Marital Status *</label>
               <select id="t1_maritalStatus" name="t1_maritalStatus" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
@@ -134,25 +146,57 @@
                 <option value="Widowed">Widowed</option>
               </select>
             </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Residency Status for Tax Purposes *</label>
+              <input type="text" id="t1_citizenship" name="t1_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Citizen / Resident">
+            </div>
           </div>
+
           <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Citizenship / Residency Status for Tax Purposes *</label>
-            <input type="text" id="t1_citizenship" name="t1_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Citizen / Permanent Resident">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Current Mailing Address *</label>
+            <label class="block text-sm font-medium text-slate-300 mb-1">Current Mailing Address (as per CRA) *</label>
             <textarea id="t1_address" name="t1_address" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Street, City, Province, Postal Code"></textarea>
           </div>
         </div>
 
         <!-- CONDITIONAL SECTION: T1 PERSONAL & BUSINESS -->
         <div id="t1BusinessSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal & Self-Employed Business Information</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal & Business Tax Intake</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) Required *</label>
               <input type="text" id="t1b_taxYears" name="t1b_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
             </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Social Insurance Number (SIN) *</label>
+              <input type="text" id="t1b_sin" name="t1b_sin" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="9-digit SIN">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Date of Birth *</label>
+              <input type="date" id="t1b_dob" name="t1b_dob" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Marital Status *</label>
+              <select id="t1b_maritalStatus" name="t1b_maritalStatus" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+                <option value="">Select status...</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Common-Law">Common-Law</option>
+                <option value="Separated">Separated</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Residency Status *</label>
+              <input type="text" id="t1b_citizenship" name="t1b_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Resident">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Business Structure Type *</label>
               <select id="t1b_structure" name="t1b_structure" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
@@ -161,21 +205,23 @@
                 <option value="Partnership">Partnership</option>
               </select>
             </div>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Registered Business Name *</label>
-              <input type="text" id="t1b_businessName" name="t1b_businessName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Business or Operating Name">
+              <input type="text" id="t1b_businessName" name="t1b_businessName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Official business or operating name">
             </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Business Start Date *</label>
-              <input type="text" id="t1b_startDate" name="t1b_startDate" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="MM/YYYY or Date">
+              <input type="text" id="t1b_startDate" name="t1b_startDate" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="MM/YYYY">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Fiscal Year / Reporting Period *</label>
+              <input type="text" id="t1b_fiscalYear" name="t1b_fiscalYear" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Jan 1 to Dec 31">
             </div>
           </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Fiscal Year / Reporting Period *</label>
-            <input type="text" id="t1b_fiscalYear" name="t1b_fiscalYear" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Jan 1 to Dec 31">
-          </div>
+
           <div>
             <label class="block text-sm font-medium text-slate-300 mb-1">Current Mailing Address *</label>
             <textarea id="t1b_address" name="t1b_address" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Street, City, Province, Postal Code"></textarea>
@@ -184,7 +230,8 @@
 
         <!-- CONDITIONAL SECTION: T2 CORPORATE TAX -->
         <div id="t2CorporateSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T2 Corporate Tax Information</h3>
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T2 Corporate Tax Intake</h3>
+          
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) / Period Required *</label>
@@ -192,17 +239,57 @@
             </div>
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Legal Corporation Name *</label>
-              <input type="text" id="t2_corpName" name="t2_corpName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Inc. / Corp. Name">
+              <input type="text" id="t2_corpName" name="t2_corpName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Legal Inc. / Corp. Name">
             </div>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Business Number (BN) / CRA Account *</label>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Business Number (BN) *</label>
               <input type="text" id="t2_businessNumber" name="t2_businessNumber" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="9-digit BN (e.g., 123456789RC0001)">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Date of Incorporation *</label>
+              <input type="date" id="t2_incorpDate" name="t2_incorpDate" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
             </div>
             <div>
               <label class="block text-sm font-medium text-slate-300 mb-1">Fiscal Year-End Date *</label>
               <input type="text" id="t2_fiscalEnd" name="t2_fiscalEnd" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., December 31">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-slate-300 mb-1">Corporation Details / Nature of Business *</label>
+            <textarea id="t2_corpDetails" name="t2_corpDetails" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Briefly describe primary business activities and share structure overview"></textarea>
+          </div>
+        </div>
+
+        <!-- CONDITIONAL SECTION: INVESTMENT ACCOUNTS (Appears for any tax return) -->
+        <div id="investmentSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">Investment Accounts & Registered Plans</h3>
+          <p class="text-xs text-slate-400">Please indicate if you opened, contributed to, or withdrew from any of the following registered accounts during the tax year:</p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">RRSP Contributions?</label>
+              <select id="inv_rrsp" name="inv_rrsp" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">TFSA Opened / Activity?</label>
+              <select id="inv_tfsa" name="inv_tfsa" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">FHSA Opened / Contributed?</label>
+              <select id="inv_fhsa" name="inv_fhsa" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
             </div>
           </div>
         </div>
@@ -211,7 +298,7 @@
         <div>
           <label for="tax_documents" class="block text-sm font-medium text-slate-300 mb-2">Upload Supporting Documents (Optional)</label>
           <input type="file" id="tax_documents" name="tax_documents" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-slate-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-950 hover:file:bg-amber-300 cursor-pointer">
-          <p class="text-xs text-slate-500 mt-1">You can attach tax slips, financial statements, or receipts if available.</p>
+          <p class="text-xs text-slate-500 mt-1">You can attach tax slips (T4, T5, etc.), financial statements, or receipts if available.</p>
         </div>
 
         <!-- How did you hear about us? -->
@@ -256,19 +343,27 @@
       const t1Sec = document.getElementById('t1PersonalSection');
       const t1bSec = document.getElementById('t1BusinessSection');
       const t2Sec = document.getElementById('t2CorporateSection');
+      const invSec = document.getElementById('investmentSection');
 
       // Hide all first
       t1Sec.classList.add('hidden');
       t1bSec.classList.add('hidden');
       t2Sec.classList.add('hidden');
+      invSec.classList.add('hidden');
 
-      // Remove required attributes from hidden fields
+      // Clear required flags
       document.getElementById('t1_taxYears').removeAttribute('required');
+      document.getElementById('t1_sin').removeAttribute('required');
+      document.getElementById('t1_dob').removeAttribute('required');
       document.getElementById('t1_maritalStatus').removeAttribute('required');
       document.getElementById('t1_citizenship').removeAttribute('required');
       document.getElementById('t1_address').removeAttribute('required');
 
       document.getElementById('t1b_taxYears').removeAttribute('required');
+      document.getElementById('t1b_sin').removeAttribute('required');
+      document.getElementById('t1b_dob').removeAttribute('required');
+      document.getElementById('t1b_maritalStatus').removeAttribute('required');
+      document.getElementById('t1b_citizenship').removeAttribute('required');
       document.getElementById('t1b_structure').removeAttribute('required');
       document.getElementById('t1b_businessName').removeAttribute('required');
       document.getElementById('t1b_startDate').removeAttribute('required');
@@ -278,18 +373,28 @@
       document.getElementById('t2_taxYears').removeAttribute('required');
       document.getElementById('t2_corpName').removeAttribute('required');
       document.getElementById('t2_businessNumber').removeAttribute('required');
+      document.getElementById('t2_incorpDate').removeAttribute('required');
       document.getElementById('t2_fiscalEnd').removeAttribute('required');
+      document.getElementById('t2_corpDetails').removeAttribute('required');
 
-      // Show relevant section and set required fields
+      // Show relevant tax section & investment section if any tax return is picked
       if (val === 'T1 Personal Tax') {
         t1Sec.classList.remove('hidden');
+        invSec.classList.remove('hidden');
         document.getElementById('t1_taxYears').setAttribute('required', 'true');
+        document.getElementById('t1_sin').setAttribute('required', 'true');
+        document.getElementById('t1_dob').setAttribute('required', 'true');
         document.getElementById('t1_maritalStatus').setAttribute('required', 'true');
         document.getElementById('t1_citizenship').setAttribute('required', 'true');
         document.getElementById('t1_address').setAttribute('required', 'true');
       } else if (val === 'T1 Personal & Business') {
         t1bSec.classList.remove('hidden');
+        invSec.classList.remove('hidden');
         document.getElementById('t1b_taxYears').setAttribute('required', 'true');
+        document.getElementById('t1b_sin').setAttribute('required', 'true');
+        document.getElementById('t1b_dob').setAttribute('required', 'true');
+        document.getElementById('t1b_maritalStatus').setAttribute('required', 'true');
+        document.getElementById('t1b_citizenship').setAttribute('required', 'true');
         document.getElementById('t1b_structure').setAttribute('required', 'true');
         document.getElementById('t1b_businessName').setAttribute('required', 'true');
         document.getElementById('t1b_startDate').setAttribute('required', 'true');
@@ -300,7 +405,9 @@
         document.getElementById('t2_taxYears').setAttribute('required', 'true');
         document.getElementById('t2_corpName').setAttribute('required', 'true');
         document.getElementById('t2_businessNumber').setAttribute('required', 'true');
+        document.getElementById('t2_incorpDate').setAttribute('required', 'true');
         document.getElementById('t2_fiscalEnd').setAttribute('required', 'true');
+        document.getElementById('t2_corpDetails').setAttribute('required', 'true');
       }
     }
 
