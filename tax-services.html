@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Services & Secure Document Upload | Sally G Tadina</title>
-    <!-- Tailwind CSS for clean, high-end styling -->
+    <title>Sally Mentorship Ltd - Tax Document Submission</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-950">
 
-    <!-- Navigation Header -->
-    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="/" class="text-xl font-semibold tracking-wide text-white">Sally G Tadina</a>
             <nav class="space-x-8 text-sm font-medium text-slate-300">
@@ -24,20 +23,22 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Main Content Container -->
     <main class="max-w-4xl mx-auto px-6 py-16">
+        
+        <!-- Header Info -->
         <div class="text-center max-w-2xl mx-auto mb-16">
-            <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full">Secure Client Portal</span>
-            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">Tax Services & Document Portal</h1>
-            <p class="text-slate-400 text-lg">
-                Precision tax strategy paired with absolute data security. Use the secure portal below to submit your details and upload your tax documents for review.
+            <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">Secure Client Portal</span>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">Sally Mentorship Ltd - Tax Document Submission</h1>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                Precision tax strategy backed by rigorous data security. Please complete the secure submission form below to initiate your review.
             </p>
         </div>
 
-        <!-- Document Preparation Checklist Box -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-12 shadow-xl">
-            <h2 class="text-xl font-semibold text-white mb-4">Required Documents Checklist</h2>
-            <p class="text-slate-400 text-sm mb-6">Before submitting your files through the secure form below, please ensure you have your relevant documentation ready:</p>
+        <!-- Checklist Grid -->
+        <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 mb-12 shadow-xl backdrop-blur">
+            <h2 class="text-xl font-semibold text-white mb-3">Before You Upload</h2>
+            <p class="text-slate-400 text-sm mb-6">Please ensure you have gathered your files ready for upload:</p>
             <ul class="grid md:grid-cols-2 gap-4 text-sm text-slate-300">
                 <li class="flex items-start space-x-3">
                     <span class="text-amber-400 font-bold">✓</span>
@@ -45,36 +46,38 @@
                 </li>
                 <li class="flex items-start space-x-3">
                     <span class="text-amber-400 font-bold">✓</span>
-                    <span>Previous year's tax return (PDF)</span>
+                    <span>Prior year tax return (PDF copy)</span>
                 </li>
                 <li class="flex items-start space-x-3">
                     <span class="text-amber-400 font-bold">✓</span>
-                    <span>Business expense logs & receipts</span>
+                    <span>Business expenses & receipts log</span>
                 </li>
                 <li class="flex items-start space-x-3">
                     <span class="text-amber-400 font-bold">✓</span>
-                    <span>Investment, K-1, or crypto summary statements</span>
+                    <span>Investment, K-1, or crypto reports</span>
                 </li>
             </ul>
         </div>
 
-        <!-- Secure Upload Form Container -->
+        <!-- Secure Form Embedding Section -->
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 md:p-12 shadow-2xl">
-            <h2 class="text-2xl font-bold text-white mb-2">Secure Information & File Submission</h2>
-            <p class="text-slate-400 text-sm mb-8">All submissions are encrypted and handled with strict confidentiality.</p>
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-white mb-2">Secure Submission Form</h2>
+                <p class="text-slate-400 text-sm">All files uploaded here are securely handled and encrypted.</p>
+            </div>
             
-            <!-- Embed your Tally.so or Jotform secure upload form iframe here -->
-            <div class="w-full bg-slate-950 border border-slate-800 rounded-xl p-6 text-center text-slate-400">
-                <!-- Replace the placeholder below with your actual Tally or Jotform embed code -->
-                <p class="mb-4">⚡ [Embed your Tally.so or Jotform secure upload widget here]</p>
-                <a href="https://tally.so" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold px-6 py-3 rounded-xl transition text-sm">Create / Link Secure Form</a>
+            <!-- Tally Form Embed Container -->
+            <div id="upload-form-container" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-8 text-center">
+                <!-- Once you publish your form on Tally, paste your embed iframe code here, or link to it directly -->
+                <p class="text-slate-400 text-sm mb-4">⚡ Paste your Tally form embed code right here</p>
             </div>
         </div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 mt-20 py-8 text-center text-xs text-slate-500">
-        <p>&copy; 2026 Sally G Tadina. All rights reserved. Secure Tax & Advisory Services.</p>
+    <footer class="border-t border-slate-800/80 mt-24 py-8 text-center text-xs text-slate-500">
+        <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved.</p>
     </footer>
 
 </body>
