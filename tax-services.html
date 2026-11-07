@@ -334,4 +334,38 @@
         </div>
 
         <div>
-          <label for="message" class="block text-sm font-
+          <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Additional Details / Message</label>
+          <textarea id="message" name="message" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Tell us a bit about your situation or goals..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg">
+          Submit Inquiry
+        </button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 mt-24 py-8 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved.</p>
+  </footer>
+
+  <!-- Script for Conditional Logic & Toggles -->
+  <script>
+    function handleServiceChange(val) {
+      const t1Sec = document.getElementById('t1PersonalSection');
+      const t1bSec = document.getElementById('t1BusinessSection');
+      const t2Sec = document.getElementById('t2CorporateSection');
+      const invSec = document.getElementById('investmentSection');
+
+      // Hide all first
+      t1Sec.classList.add('hidden');
+      t1bSec.classList.add('hidden');
+      t2Sec.classList.add('hidden');
+      invSec.classList.add('hidden');
+
+      // Clear required flags
+      document.getElementById('t1_taxYears').removeAttribute('required');
+      document.getElementById('t1_sin').removeAttribute('required');
+      document.getElementById('t1_dob').removeAttribute
