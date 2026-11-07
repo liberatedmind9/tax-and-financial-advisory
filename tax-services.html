@@ -1,93 +1,119 @@
-<!-- ================= CONDITIONAL TAX SECTIONS & SIGNATURE ================= -->
+<!-- ================= CLIENT PORTAL & INQUIRY FORM ================= -->
+<div class="inquiry-form-container" style="max-width: 700px; margin: 0 auto; padding: 20px; color: #fff;">
+  <h2>Client Portal & Inquiry Form</h2>
+  <p style="margin-bottom: 20px; color: #ccc;">Submit your details and optional documents to get started with our services.</p>
 
-<!-- T1 Personal Tax Questions -->
-<div id="t1-questions" class="conditional-tax-section" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-  <h4 style="margin-bottom: 15px; color: #f0c040;">T1 Personal Tax Details</h4>
-  
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label for="marital-status">Marital Status (as of Dec 31) *</label>
-    <select id="marital-status" name="marital_status">
-      <option value="">Select status...</option>
-      <option value="single">Single</option>
-      <option value="married">Married</option>
-      <option value="common-law">Common-Law</option>
-      <option value="separated">Separated</option>
-      <option value="divorced">Divorced</option>
-      <option value="widowed">Widowed</option>
-    </select>
-  </div>
-
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label>Are you a Canadian citizen? *</label>
-    <div>
-      <label><input type="radio" name="canadian_citizen" value="yes"> Yes</label>
-      <label style="margin-left: 15px;"><input type="radio" name="canadian_citizen" value="no"> No</label>
+  <form id="tax-inquiry-form">
+    
+    <!-- Full Name -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="full-name">Full Name *</label>
+      <input type="text" id="full-name" name="full_name" placeholder="John Doe" required style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
     </div>
-  </div>
 
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label>Did you reside in Canada for all of the tax year? *</label>
-    <div>
-      <label><input type="radio" name="reside_canada" value="yes"> Yes</label>
-      <label style="margin-left: 15px;"><input type="radio" name="reside_canada" value="no"> No</label>
+    <!-- Email Address -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com" required style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
     </div>
-  </div>
 
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label>Did you own specified foreign property over $100,000 at any time during the year?</label>
-    <div>
-      <label><input type="radio" name="foreign_property" value="yes"> Yes</label>
-      <label style="margin-left: 15px;"><input type="radio" name="foreign_property" value="no"> No</label>
+    <!-- Phone Number -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
     </div>
-  </div>
-</div>
 
-<!-- T2 Corporate Tax Questions -->
-<div id="t2-questions" class="conditional-tax-section" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-  <h4 style="margin-bottom: 15px; color: #f0c040;">T2 Corporate Tax Details</h4>
-
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label for="corp-name">Corporation Legal Name *</label>
-    <input type="text" id="corp-name" name="corp_name" placeholder="Enter corporation name">
-  </div>
-
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label for="business-number">Business Number (BN - 9 digits) *</label>
-    <input type="text" id="business-number" name="business_number" placeholder="123456789 RC0001">
-  </div>
-
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label for="fiscal-yearend">Fiscal Year-End Date *</label>
-    <input type="text" id="fiscal-yearend" name="fiscal_yearend" placeholder="MM / DD">
-  </div>
-
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label>Does this corporation have any associated or related corporations?</label>
-    <div>
-      <label><input type="radio" name="associated_corp" value="yes"> Yes</label>
-      <label style="margin-left: 15px;"><input type="radio" name="associated_corp" value="no"> No</label>
+    <!-- Service Needed (Triggers Toggle) -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="service-needed">Service Needed *</label>
+      <select id="service-needed" name="service_needed" required onchange="toggleTaxQuestions()" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
+        <option value="">Select a service...</option>
+        <option value="t1">T1 Personal Tax Return</option>
+        <option value="t2">T2 Corporate Tax Return</option>
+        <option value="business-setup">Business Setup & CRA Registration</option>
+        <option value="bookkeeping">Bookkeeping, Payroll & Accounting</option>
+        <option value="financial-planning">Financial Planning & Strategy</option>
+        <option value="other">Other / Multiple Services</option>
+      </select>
     </div>
-  </div>
-</div>
 
-<!-- Tax-Only Consent & Electronic Signature (Appears for both T1 and T2) -->
-<div id="tax-signature-section" class="conditional-tax-section" style="display: none; margin-top: 25px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 8px; border-left: 3px solid #f0c040;">
-  <h4 style="margin-bottom: 12px; color: #f0c040;">Consent & Electronic Signature</h4>
-  
-  <div class="form-group" style="margin-bottom: 15px;">
-    <label style="display: flex; align-items: flex-start; cursor: pointer; font-size: 0.95rem; line-height: 1.4;">
-      <input type="checkbox" id="tax-consent-checkbox" name="tax_consent" style="margin-top: 3px; margin-right: 10px;">
-      <span>I authorize Sally Mentorship Ltd. to collect, use, and retain the provided information and supporting documents for the purpose of preparing and filing my tax return. I certify that all information provided is accurate and complete to the best of my knowledge. *</span>
-    </label>
-  </div>
+    <!-- Upload Supporting Documents -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="documents">Upload Supporting Documents (Optional)</label>
+      <input type="file" id="documents" name="documents" style="display: block; margin-top: 5px;">
+      <small style="color: #aaa;">You can attach tax slips, financial statements, or receipts if available.</small>
+    </div>
 
-  <div class="form-group" style="margin-bottom: 12px;">
-    <label for="electronic-signature">Electronic Signature (Type Full Name) *</label>
-    <input type="text" id="electronic-signature" name="electronic_signature" placeholder="e.g., John Doe" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
-  </div>
+    <!-- Referral Source -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="referral">How did you hear about us?</label>
+      <select id="referral" name="referral" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
+        <option value="">Select an option...</option>
+        <option value="google">Google Search</option>
+        <option value="referral">Referral</option>
+        <option value="social">Social Media</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
 
-  <div class="form-group" style="margin-bottom: 5px;">
-    <label for="signature-date">Date *</label>
-    <input type="date" id="signature-date" name="signature_date" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-  </div>
-</div>
+    <!-- Additional Details / Message -->
+    <div class="form-group" style="margin-bottom: 20px;">
+      <label for="message">Additional Details / Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your situation or goals..." style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;"></textarea>
+    </div>
+
+
+    <!-- ================= T1 CONDITIONAL SECTION ================= -->
+    <div id="t1-questions" class="conditional-tax-section" style="display: none; margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #444;">
+      <h4 style="margin-bottom: 15px; color: #f0c040;">T1 Personal Tax Details</h4>
+      
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="marital-status">Marital Status (as of Dec 31) *</label>
+        <select id="marital-status" name="marital_status" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
+          <option value="">Select status...</option>
+          <option value="single">Single</option>
+          <option value="married">Married</option>
+          <option value="common-law">Common-Law</option>
+          <option value="separated">Separated</option>
+          <option value="divorced">Divorced</option>
+          <option value="widowed">Widowed</option>
+        </select>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label>Are you a Canadian citizen? *</label>
+        <div style="margin-top: 5px;">
+          <label><input type="radio" name="canadian_citizen" value="yes"> Yes</label>
+          <label style="margin-left: 20px;"><input type="radio" name="canadian_citizen" value="no"> No</label>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label>Did you reside in Canada for all of the tax year? *</label>
+        <div style="margin-top: 5px;">
+          <label><input type="radio" name="reside_canada" value="yes"> Yes</label>
+          <label style="margin-left: 20px;"><input type="radio" name="reside_canada" value="no"> No</label>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 5px;">
+        <label>Did you own specified foreign property over $100,000 at any time during the year?</label>
+        <div style="margin-top: 5px;">
+          <label><input type="radio" name="foreign_property" value="yes"> Yes</label>
+          <label style="margin-left: 20px;"><input type="radio" name="foreign_property" value="no"> No</label>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ================= T2 CONDITIONAL SECTION ================= -->
+    <div id="t2-questions" class="conditional-tax-section" style="display: none; margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #444;">
+      <h4 style="margin-bottom: 15px; color: #f0c040;">T2 Corporate Tax Details</h4>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="corp-name">Corporation Legal Name *</label>
+        <input type="text" id="corp-name" name="corp_name" placeholder="Enter corporation name" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #1a1a1a; color: #fff;">
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="
