@@ -15,13 +15,13 @@
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-950">
 
   <!-- Header Navigation -->
-  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 text-xl font-semibold tracking-wide text-white">
-        <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-9 w-auto object-contain rounded">
-        <span>Sally Mentorship Ltd</span>
+  <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 text-base sm:text-xl font-semibold tracking-wide text-white">
+        <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-8 sm:h-9 w-auto object-contain rounded">
+        <span class="truncate max-w-[180px] sm:max-w-none">Sally Mentorship Ltd</span>
       </a>
-      <nav class="space-x-8 text-sm font-medium text-slate-300">
+      <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
         <a href="index.html" class="hover:text-white transition">Human Design Mentorship</a>
         <a href="tax-services.html" class="text-white border-b-2 border-amber-400 pb-1">Income Tax and Financial Advisory</a>
       </nav>
@@ -29,78 +29,78 @@
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-4xl mx-auto px-6 py-16">
-    <div class="text-center mb-12">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+    <div class="text-center mb-8 sm:mb-12">
       <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">Secure Client Portal</span>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mt-4 mb-3 text-white">Tax Document Submission</h1>
-      <p class="text-slate-400 max-w-lg mx-auto">Precision Canadian tax strategy backed by rigorous data security. Please complete the secure submission form below to initiate your review.</p>
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight mt-4 mb-3 text-white">Tax Document Submission</h1>
+      <p class="text-slate-400 text-sm sm:text-base max-w-lg mx-auto">Precision Canadian tax strategy backed by rigorous data security. Complete the form below to initiate your secure review.</p>
     </div>
 
     <!-- Before You Upload (Checklist) -->
-    <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 mb-12 shadow-xl backdrop-blur">
-      <h2 class="text-xl font-bold text-white mb-4">Before You Upload</h2>
-      <p class="text-slate-400 text-sm mb-6">Please ensure you have gathered your files ready for upload based on your filing type:</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
-        <div class="flex items-start gap-3">
+    <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 sm:p-8 mb-8 sm:mb-12 shadow-xl backdrop-blur">
+      <h2 class="text-lg sm:text-xl font-bold text-white mb-3">Before You Upload</h2>
+      <p class="text-slate-400 text-xs sm:text-sm mb-5">Please ensure you have gathered your files ready for upload based on your filing type:</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300">
+        <div class="flex items-start gap-2.5">
           <span class="text-amber-400 font-bold">✓</span>
-          <span><strong>T4s, T5s, and income slips</strong> (Employment, investment, or pension income)</span>
+          <span><strong>T4s, T5s, and income slips</strong> (Employment, investment, or pension)</span>
         </div>
-        <div class="flex items-start gap-3">
+        <div class="flex items-start gap-2.5">
           <span class="text-amber-400 font-bold">✓</span>
           <span><strong>Prior year Notice of Assessment (NOA)</strong> (PDF copy from CRA)</span>
         </div>
-        <div class="flex items-start gap-3">
+        <div class="flex items-start gap-2.5">
           <span class="text-amber-400 font-bold">✓</span>
-          <span><strong>Self-Employment:</strong> Business expenses, receipts log, and total gross sales / revenue records</span>
+          <span><strong>Self-Employment:</strong> Expenses, receipt logs, and gross sales records</span>
         </div>
-        <div class="flex items-start gap-3">
+        <div class="flex items-start gap-2.5">
           <span class="text-amber-400 font-bold">✓</span>
-          <span><strong>Corporation (T2):</strong> Financial statements (Income Statement & Balance Sheet) and Articles of Incorporation</span>
+          <span><strong>Corporation (T2):</strong> Financial statements & Articles of Incorporation</span>
         </div>
-        <div class="flex items-start gap-3 md:col-span-2">
+        <div class="flex items-start gap-2.5 md:col-span-2">
           <span class="text-amber-400 font-bold">✓</span>
-          <span><strong>Deductions & Credits:</strong> RRSP, childcare, and medical receipts to maximize your refund</span>
+          <span><strong>Deductions & Credits:</strong> RRSP, childcare, and medical receipts</span>
         </div>
       </div>
     </div>
 
     <!-- Supabase Secure Submission Form Container -->
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-8 shadow-2xl">
       <div class="mb-6 text-center">
-        <h2 class="text-xl font-bold text-white mb-2">Secure Intake Questionnaire</h2>
-        <p class="text-xs text-slate-400">All information and files uploaded here are securely handled and encrypted.</p>
+        <h2 class="text-lg sm:text-xl font-bold text-white mb-1">Secure Intake Questionnaire</h2>
+        <p class="text-xs text-slate-400">All information and uploaded files are securely handled and encrypted.</p>
       </div>
 
-      <form id="taxForm" class="space-y-6">
+      <form id="taxForm" class="space-y-5">
         <!-- Names Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label for="firstName" class="block text-sm font-semibold text-slate-200 mb-2">First Legal Name *</label>
-            <input type="text" id="firstName" required placeholder="Jane" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+            <label for="firstName" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">First Legal Name *</label>
+            <input type="text" id="firstName" required placeholder="Jane" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
           </div>
           <div>
-            <label for="middleName" class="block text-sm font-semibold text-slate-200 mb-2">Middle Name(s)</label>
-            <input type="text" id="middleName" placeholder="Marie" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+            <label for="middleName" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Middle Name(s)</label>
+            <input type="text" id="middleName" placeholder="Marie" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
           </div>
           <div>
-            <label for="lastName" class="block text-sm font-semibold text-slate-200 mb-2">Last Name *</label>
-            <input type="text" id="lastName" required placeholder="Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+            <label for="lastName" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Last Name *</label>
+            <input type="text" id="lastName" required placeholder="Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
           </div>
         </div>
 
         <!-- Personal Identifiers -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label for="dob" class="block text-sm font-semibold text-slate-200 mb-2">Date of Birth *</label>
-            <input type="date" id="dob" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition" />
+            <label for="dob" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Date of Birth *</label>
+            <input type="date" id="dob" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition" />
           </div>
           <div>
-            <label for="sin" class="block text-sm font-semibold text-slate-200 mb-2">SIN (Social Insurance Number) *</label>
-            <input type="password" id="sin" required placeholder="000-000-000" maxlength="11" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+            <label for="sin" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">SIN *</label>
+            <input type="password" id="sin" required placeholder="000-000-000" maxlength="11" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
           </div>
           <div>
-            <label for="citizenship" class="block text-sm font-semibold text-slate-200 mb-2">Citizenship Status *</label>
-            <select id="citizenship" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition">
+            <label for="citizenship" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Citizenship Status *</label>
+            <select id="citizenship" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition">
               <option value="">Select status...</option>
               <option value="Canadian Citizen">Canadian Citizen</option>
               <option value="Permanent Resident">Permanent Resident</option>
@@ -111,27 +111,27 @@
         </div>
 
         <!-- Contact Info -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="email" class="block text-sm font-semibold text-slate-200 mb-2">Email Address *</label>
-            <input type="email" id="email" required placeholder="jane@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+            <label for="email" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Email Address *</label>
+            <input type="email" id="email" required placeholder="jane@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
           </div>
           <div>
-            <label for="phone" class="block text-sm font-semibold text-slate-200 mb-2">Phone Number *</label>
-            <input type="tel" id="phone" required placeholder="(555) 000-0000" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+            <label for="phone" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Phone Number *</label>
+            <input type="tel" id="phone" required placeholder="(555) 000-0000" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
           </div>
         </div>
 
         <!-- Address -->
         <div>
-          <label for="address" class="block text-sm font-semibold text-slate-200 mb-2">Current Residential Address (Street, City, Province, Postal Code) *</label>
-          <input type="text" id="address" required placeholder="123 Main St, Victoria, BC V8W 2Y2" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+          <label for="address" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Current Residential Address (Street, City, Prov, Postal Code) *</label>
+          <input type="text" id="address" required placeholder="123 Main St, Victoria, BC V8W 2Y2" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
         </div>
 
         <!-- Marital Status -->
         <div>
-          <label for="maritalStatus" class="block text-sm font-semibold text-slate-200 mb-2">Marital Status for the Tax Year *</label>
-          <select id="maritalStatus" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition">
+          <label for="maritalStatus" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Marital Status for the Tax Year *</label>
+          <select id="maritalStatus" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition">
             <option value="">Select status...</option>
             <option value="Single">Single</option>
             <option value="Married">Married</option>
@@ -144,48 +144,48 @@
 
         <!-- Tax Years (Dynamically generated checkboxes) -->
         <div>
-          <label class="block text-sm font-semibold text-slate-200 mb-2">Tax Year(s) Filing For * (Check all that apply)</label>
-          <div id="taxYearsContainer" class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-950 border border-slate-800 rounded-lg p-4">
+          <label class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Tax Year(s) Filing For * (Check all that apply)</label>
+          <div id="taxYearsContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950 border border-slate-800 rounded-lg p-3.5">
             <!-- Dynamically populated via script -->
           </div>
         </div>
 
         <!-- Document Uploads -->
         <div>
-          <label for="taxFiles" class="block text-sm font-semibold text-slate-200 mb-2">Upload Tax Slips & Documents (T4s, T5s, Receipts, NOA) *</label>
-          <input type="file" id="taxFiles" multiple required accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-950 hover:file:bg-amber-300 transition cursor-pointer" />
+          <label for="taxFiles" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Upload Tax Slips & Documents (T4s, T5s, Receipts, NOA) *</label>
+          <input type="file" id="taxFiles" multiple required accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-xs sm:text-sm text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-xs sm:file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-950 hover:file:bg-amber-300 transition cursor-pointer" />
         </div>
 
         <!-- Additional Notes -->
         <div>
-          <label for="notes" class="block text-sm font-semibold text-slate-200 mb-2">Additional Comments / Notes</label>
-          <textarea id="notes" rows="3" placeholder="Any specific details about your return..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition"></textarea>
+          <label for="notes" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Additional Comments / Notes</label>
+          <textarea id="notes" rows="3" placeholder="Any specific details about your return..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition"></textarea>
         </div>
 
         <!-- Consent Clause -->
-        <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-xs text-slate-400 space-y-3">
+        <div class="bg-slate-950 border border-slate-800 rounded-lg p-3.5 text-xs text-slate-400 space-y-2.5">
           <p><strong>Declaration & Consent:</strong> I declare that the information provided is accurate and complete to the best of my knowledge, and I authorize Sally Mentorship Ltd to prepare and file my tax return.</p>
-          <label class="flex items-start gap-3 cursor-pointer text-slate-200 font-medium">
-            <input type="checkbox" id="consentCheck" required class="mt-0.5 accent-amber-400">
+          <label class="flex items-start gap-2.5 cursor-pointer text-slate-200 font-medium">
+            <input type="checkbox" id="consentCheck" required class="mt-0.5 h-4 w-4 accent-amber-400 shrink-0">
             <span>I agree to the declaration and consent terms above *</span>
           </label>
         </div>
 
         <!-- Electronic Signature -->
         <div>
-          <label for="signature" class="block text-sm font-semibold text-slate-200 mb-2">Client Electronic Signature (Type Full Legal Name as Signature) *</label>
-          <input type="text" id="signature" required placeholder="Jane Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition italic font-serif" />
+          <label for="signature" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-1.5">Client Electronic Signature (Type Full Legal Name as Signature) *</label>
+          <input type="text" id="signature" required placeholder="Jane Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition italic font-serif" />
         </div>
 
-        <button type="submit" id="submitBtn" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg cursor-pointer">Submit Documents Securely</button>
+        <button type="submit" id="submitBtn" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg cursor-pointer text-sm sm:text-base">Submit Documents Securely</button>
       </form>
 
-      <div id="statusMessage" class="mt-4 text-center font-medium text-sm"></div>
+      <div id="statusMessage" class="mt-4 text-center font-medium text-xs sm:text-sm"></div>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800/80 mt-24 py-8 text-center text-xs text-slate-500">
+  <footer class="border-t border-slate-800/80 mt-16 sm:mt-24 py-8 text-center text-xs text-slate-500">
     <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved. | <a href="index.html" class="hover:text-slate-300 underline">Back to Mentorship Home</a></p>
   </footer>
 
@@ -196,7 +196,6 @@
       const currentYear = new Date().getFullYear();
       const container = document.getElementById('taxYearsContainer');
       
-      // Generate options: Current Year, Current Year - 1, Current Year - 2, and Prior
       const yearsToShow = [
         currentYear,
         currentYear - 1,
@@ -204,11 +203,11 @@
         `${currentYear - 3} / Prior`
       ];
 
-      yearsToShow.forEach((yr, index) => {
+      yearsToShow.forEach((yr) => {
         const val = String(yr);
         const label = document.createElement('label');
-        label.className = "flex items-center gap-2 text-sm text-slate-300 cursor-pointer";
-        label.innerHTML = `<input type="checkbox" name="taxYears" value="${val}" class="accent-amber-400"> ${val}`;
+        label.className = "flex items-center gap-2 text-xs sm:text-sm text-slate-300 cursor-pointer select-none py-1";
+        label.innerHTML = `<input type="checkbox" name="taxYears" value="${val}" class="h-4 w-4 accent-amber-400 shrink-0"> ${val}`;
         container.appendChild(label);
       });
     });
@@ -229,7 +228,6 @@
       statusMsg.innerText = "";
 
       try {
-        // Collect checked tax years
         const selectedYears = Array.from(document.querySelectorAll('input[name="taxYears"]:checked'))
           .map(cb => cb.value);
 
@@ -271,13 +269,13 @@
 
         if (dbError) throw dbError;
 
-        statusMsg.style.color = "#34d399"; // Emerald green
+        statusMsg.style.color = "#34d399";
         statusMsg.innerText = "Success! Your tax documents have been securely submitted.";
         form.reset();
 
       } catch (err) {
         console.error(err);
-        statusMsg.style.color = "#f87171"; // Light red
+        statusMsg.style.color = "#f87171";
         statusMsg.innerText = "Submission failed: " + (err.message || "Please check your network and try again.");
       } finally {
         submitBtn.disabled = false;
