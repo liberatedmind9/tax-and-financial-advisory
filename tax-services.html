@@ -4,434 +4,281 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tax Services & Financial Advisory | Sally Mentorship Ltd</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    :root {
+      --primary: #1e3a8a;
+      --accent: #3b82f6;
+      --bg-color: #f8fafc;
+      --text-color: #334155;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .service-card {
+      background: #f1f5f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    .service-card h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    label {
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    input, select, textarea {
+      padding: 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button[type="submit"] {
+      background: var(--primary);
+      color: white;
+      padding: 0.85rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #1e40af;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-950">
+<body>
 
-  <!-- Header Navigation -->
-  <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
-      <a href="index.html" class="flex items-center gap-3 text-lg sm:text-xl font-semibold tracking-wide text-white shrink-0">
-        <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-9 w-auto object-contain rounded">
-        <span>Sally G Tadina</span>
-      </a>
-      <nav class="flex items-center gap-6 text-sm font-medium text-slate-300">
-        <a href="index.html" class="hover:text-white transition whitespace-nowrap">Human Design Mentorship</a>
-        <a href="tax-services.html" class="text-white border-b-2 border-amber-400 pb-0.5 whitespace-nowrap">Income Tax and Financial Advisory</a>
-      </nav>
+  <header>
+    <a href="https://sallygtadina.love/">Sally G Tadina</a>
+    <div>
+      <a href="https://sallygtadina.love/">Human Design</a> | 
+      <a href="https://sallygtadina.love/tax-services.html" style="color: var(--accent);">Tax & Financial</a>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-4xl mx-auto px-6 py-16">
-    
-    <!-- Page Header -->
-    <div class="text-center mb-16">
-      <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">Professional Financial Services</span>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-4 text-white">Income Tax & Financial Advisory</h1>
-      <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-        Expert tax preparation, corporate solutions, bookkeeping, and comprehensive financial planning tailored for individuals and growing businesses.
-      </p>
-    </div>
+  <div class="container">
+    <h1>Income Tax & Financial Advisory</h1>
+    <p>Expert tax preparation, corporate solutions, bookkeeping, and comprehensive financial planning tailored for individuals and growing businesses.</p>
 
-    <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
-        <div class="text-amber-400 text-2xl mb-3">📄</div>
-        <h3 class="text-lg font-bold text-white mb-2">T1 Personal Tax Return</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Accurate personal tax preparation to ensure you maximize returns and stay fully compliant with the CRA.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>T1 Personal Tax Return</h3>
+        <p>Accurate personal tax preparation to ensure you maximize returns and stay compliant.</p>
       </div>
-
-      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
-        <div class="text-amber-400 text-2xl mb-3">📁</div>
-        <h3 class="text-lg font-bold text-white mb-2">T1 Personal & Business</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Combined personal and self-employed / sole proprietorship or partnership tax filing solutions.</p>
+      <div class="service-card">
+        <h3>T2 Corporate Tax Return</h3>
+        <p>Specialized corporate tax filing and planning for small to medium businesses.</p>
       </div>
-
-      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
-        <div class="text-amber-400 text-2xl mb-3">🏢</div>
-        <h3 class="text-lg font-bold text-white mb-2">T2 Corporate Tax Return</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Specialized corporate tax filing and planning designed for incorporated small to medium businesses.</p>
-      </div>
-
-      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
-        <div class="text-amber-400 text-2xl mb-3">🚀</div>
-        <h3 class="text-lg font-bold text-white mb-2">Business Setup & CRA Registration</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Proper business setup, incorporation guidance, and CRA account registrations for new entrepreneurs.</p>
-      </div>
-
-      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
-        <div class="text-amber-400 text-2xl mb-3">📊</div>
-        <h3 class="text-lg font-bold text-white mb-2">Bookkeeping, Payroll & Accounting</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Complete back-office management including day-to-day bookkeeping, payroll administration, and accounting.</p>
-      </div>
-
-      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
-        <div class="text-amber-400 text-2xl mb-3">💡</div>
-        <h3 class="text-lg font-bold text-white mb-2">Financial Planning & Strategy</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Forward-looking financial guidance to help you manage wealth and structure long-term growth.</p>
+      <div class="service-card">
+        <h3>Bookkeeping & Payroll</h3>
+        <p>Complete back-office management including day-to-day accounts and payroll.</p>
       </div>
     </div>
 
-    <!-- Client Submission / Contact Portal Form -->
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-xl">
-      <h2 class="text-2xl font-bold text-white mb-2">Client Portal & Inquiry Form</h2>
-      <p class="text-slate-400 text-sm mb-2">Submit your details and optional documents to get started with our services.</p>
-      <p class="text-xs text-amber-400 mb-8">* Tip: Hold down Ctrl (Windows) or Cmd (Mac) to select multiple services.</p>
+    <h2>Client Portal & Inquiry Form</h2>
+    <p>Submit your details and optional documents to get started with our services.</p>
 
-      <form id="taxForm" class="space-y-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <label for="fullName" class="block text-sm font-medium text-slate-300 mb-2">Full Legal Name *</label>
-            <input type="text" id="fullName" name="fullName" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="John Doe">
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email Address *</label>
-            <input type="email" id="email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="john@example.com">
-          </div>
-        </div>
+    <form id="taxInquiryForm">
+      <label>
+        Full Legal Name *
+        <input type="text" id="fullName" required placeholder="John Doe">
+      </label>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="(555) 000-0000">
-          </div>
-          <div>
-            <label for="serviceType" class="block text-sm font-medium text-slate-300 mb-2">Services Needed (Select multiple if applicable) *</label>
-            <select id="serviceType" name="serviceType" multiple required onchange="handleServiceChange()" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400 h-36">
-              <option value="T1 Personal Tax">T1 Personal Tax Return</option>
-              <option value="T1 Personal & Business">T1 Personal & Business</option>
-              <option value="T2 Corporate Tax">T2 Corporate Tax Return</option>
-              <option value="Business Setup & CRA">Business Setup & CRA Registration</option>
-              <option value="Bookkeeping & Payroll">Bookkeeping, Payroll & Accounting</option>
-              <option value="Financial Planning">Financial Planning</option>
-              <option value="Other">Other / Multiple Services</option>
-            </select>
-          </div>
-        </div>
+      <label>
+        Email Address *
+        <input type="email" id="email" required placeholder="john@example.com">
+      </label>
 
-        <!-- CONDITIONAL SECTION: T1 PERSONAL TAX -->
-        <div id="t1PersonalSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal Tax Intake (CRA Required)</h3>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) Required *</label>
-              <input type="text" id="t1_taxYears" name="t1_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Social Insurance Number (SIN) *</label>
-              <input type="text" id="t1_sin" name="t1_sin" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="9-digit SIN">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Date of Birth *</label>
-              <input type="date" id="t1_dob" name="t1_dob" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-            </div>
-          </div>
+      <label>
+        Phone Number *
+        <input type="tel" id="phone" required placeholder="(555) 000-0000">
+      </label>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Marital Status *</label>
-              <select id="t1_maritalStatus" name="t1_maritalStatus" onchange="handleMaritalChange(this.value, 't1')" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-                <option value="">Select status...</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Common-Law">Common-Law</option>
-                <option value="Separated">Separated</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Widowed">Widowed</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Residency Status for Tax Purposes *</label>
-              <input type="text" id="t1_citizenship" name="t1_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Citizen / Resident">
-            </div>
-          </div>
+      <label>
+        Services Needed *
+        <select id="servicesNeeded" required>
+          <option value="">Select a service...</option>
+          <option value="T1 Personal Tax Return">T1 Personal Tax Return</option>
+          <option value="T1 Personal & Business">T1 Personal & Business</option>
+          <option value="T2 Corporate Tax Return">T2 Corporate Tax Return</option>
+          <option value="Business Setup & CRA Registration">Business Setup & CRA Registration</option>
+          <option value="Bookkeeping, Payroll & Accounting">Bookkeeping, Payroll & Accounting</option>
+          <option value="Financial Planning & Strategy">Financial Planning & Strategy</option>
+          <option value="Other / Multiple Services">Other / Multiple Services</option>
+        </select>
+      </label>
 
-          <!-- Marital Status Change Date (Conditional for T1) -->
-          <div id="t1_maritalChangeContainer" class="hidden bg-slate-900/80 border border-slate-800 p-4 rounded-lg">
-            <label class="block text-sm font-medium text-amber-300 mb-1">Date of Marital Status Change *</label>
-            <input type="date" id="t1_maritalChangeDate" name="t1_maritalChangeDate" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-            <p class="text-xs text-slate-400 mt-1">Required by CRA if your marital status changed during or prior to the tax year.</p>
-          </div>
+      <label>
+        Tax Years Needed
+        <input type="text" id="taxYears" placeholder="e.g., 2024, 2025">
+      </label>
 
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Current Mailing Address (as per CRA) *</label>
-            <textarea id="t1_address" name="t1_address" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Street, City, Province, Postal Code"></textarea>
-          </div>
-        </div>
+      <label>
+        Social Insurance Number (SIN)
+        <input type="text" id="sinNumber" placeholder="Optional / Secure entry">
+      </label>
 
-        <!-- CONDITIONAL SECTION: T1 PERSONAL & BUSINESS -->
-        <div id="t1BusinessSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal & Business Tax Intake</h3>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) Required *</label>
-              <input type="text" id="t1b_taxYears" name="t1b_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Social Insurance Number (SIN) *</label>
-              <input type="text" id="t1b_sin" name="t1b_sin" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="9-digit SIN">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Date of Birth *</label>
-              <input type="date" id="t1b_dob" name="t1b_dob" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-            </div>
-          </div>
+      <label>
+        Date of Birth
+        <input type="date" id="dob">
+      </label>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Marital Status *</label>
-              <select id="t1b_maritalStatus" name="t1b_maritalStatus" onchange="handleMaritalChange(this.value, 't1b')" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-                <option value="">Select status...</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Common-Law">Common-Law</option>
-                <option value="Separated">Separated</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Widowed">Widowed</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Residency Status *</label>
-              <input type="text" id="t1b_citizenship" name="t1b_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Resident">
-            </div>
-          </div>
+      <label>
+        Marital Status
+        <select id="maritalStatus">
+          <option value="">Select status...</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+          <option value="Common-Law">Common-Law</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
 
-          <!-- Marital Status Change Date (Conditional for T1 Business) -->
-          <div id="t1b_maritalChangeContainer" class="hidden bg-slate-900/80 border border-slate-800 p-4 rounded-lg">
-            <label class="block text-sm font-medium text-amber-300 mb-1">Date of Marital Status Change *</label>
-            <input type="date" id="t1b_maritalChangeDate" name="t1b_maritalChangeDate" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-            <p class="text-xs text-slate-400 mt-1">Required by CRA if your marital status changed during or prior to the tax year.</p>
-          </div>
+      <label>
+        Address
+        <input type="text" id="address" placeholder="Your residential or business address">
+      </label>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Business Structure Type *</label>
-              <select id="t1b_structure" name="t1b_structure" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-                <option value="">Select structure...</option>
-                <option value="Sole Proprietor">Sole Proprietor</option>
-                <option value="Partnership">Partnership</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Registered Business Name *</label>
-              <input type="text" id="t1b_businessName" name="t1b_businessName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Official business or operating name">
-            </div>
-          </div>
+      <label>
+        Upload Supporting Documents (Optional)
+        <input type="file" id="documentUpload">
+        <small style="color: #64748b; font-weight: normal;">You can attach tax slips (T4, T5), financial statements, or receipts.</small>
+      </label>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Business Start Date *</label>
-              <input type="text" id="t1b_startDate" name="t1b_startDate" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="MM/YYYY">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Fiscal Year / Reporting Period *</label>
-              <input type="text" id="t1b_fiscalYear" name="t1b_fiscalYear" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Jan 1 to Dec 31">
-            </div>
-          </div>
+      <label>
+        Additional Details / Message
+        <textarea id="message" rows="4" placeholder="Tell us a bit about your situation or goals..."></textarea>
+      </label>
 
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Current Mailing Address *</label>
-            <textarea id="t1b_address" name="t1b_address" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Street, City, Province, Postal Code"></textarea>
-          </div>
-        </div>
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </div>
 
-        <!-- CONDITIONAL SECTION: T2 CORPORATE TAX -->
-        <div id="t2CorporateSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T2 Corporate Tax Intake</h3>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) / Period Required *</label>
-              <input type="text" id="t2_taxYears" name="t2_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Legal Corporation Name *</label>
-              <input type="text" id="t2_corpName" name="t2_corpName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Legal Inc. / Corp. Name">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Business Number (BN) *</label>
-              <input type="text" id="t2_businessNumber" name="t2_businessNumber" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="9-digit BN (e.g., 123456789RC0001)">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Date of Incorporation *</label>
-              <input type="date" id="t2_incorpDate" name="t2_incorpDate" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">Fiscal Year-End Date *</label>
-              <input type="text" id="t2_fiscalEnd" name="t2_fiscalEnd" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., December 31">
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-300 mb-1">Corporation Details / Nature of Business *</label>
-            <textarea id="t2_corpDetails" name="t2_corpDetails" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Briefly describe primary business activities and share structure overview"></textarea>
-          </div>
-        </div>
-
-        <!-- CONDITIONAL SECTION: INVESTMENT ACCOUNTS (Appears if any T1 tax return is selected) -->
-        <div id="investmentSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">Investment Accounts & Registered Plans</h3>
-          <p class="text-xs text-slate-400">Please indicate if you opened, contributed to, or withdrew from any of the following registered accounts during the tax year:</p>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">RRSP Contributions?</label>
-              <select id="inv_rrsp" name="inv_rrsp" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-                <option value="No">No</option>
-                <option value="Yes">Yes</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">TFSA Opened / Activity?</label>
-              <select id="inv_tfsa" name="inv_tfsa" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-                <option value="No">No</option>
-                <option value="Yes">Yes</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-300 mb-1">FHSA Opened / Contributed?</label>
-              <select id="inv_fhsa" name="inv_fhsa" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-                <option value="No">No</option>
-                <option value="Yes">Yes</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Optional Document Upload -->
-        <div>
-          <label for="tax_documents" class="block text-sm font-medium text-slate-300 mb-2">Upload Supporting Documents (Optional)</label>
-          <input type="file" id="tax_documents" name="tax_documents" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-slate-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-950 hover:file:bg-amber-300 cursor-pointer">
-          <p class="text-xs text-slate-500 mt-1">You can attach tax slips (T4, T5, etc.), financial statements, or receipts if available.</p>
-        </div>
-
-        <!-- How did you hear about us? -->
-        <div>
-          <label for="referral_source" class="block text-sm font-medium text-slate-300 mb-2">How did you hear about us?</label>
-          <select id="referral_source" name="referral_source" onchange="toggleOtherSource(this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
-            <option value="">Select an option...</option>
-            <option value="Google Search">Google Search</option>
-            <option value="Referral">Referral</option>
-            <option value="Social Media">Social Media</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <!-- Hidden "Other" specification text box -->
-        <div id="other_source_container" class="hidden">
-          <label for="other_source_text" class="block text-sm font-medium text-slate-300 mb-2">Please specify:</label>
-          <input type="text" id="other_source_text" name="other_source_text" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Please specify how you heard about us">
-        </div>
-
-        <div>
-          <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Additional Details / Message</label>
-          <textarea id="message" name="message" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Tell us a bit about your situation or goals..."></textarea>
-        </div>
-
-        <button type="submit" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg">
-          Submit Inquiry
-        </button>
-      </form>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/80 mt-24 py-8 text-center text-xs text-slate-500">
-    <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved.</p>
+  <footer>
+    &copy; 2026 Sally Mentorship Ltd. All rights reserved.
   </footer>
 
-  <!-- Script for Multi-Select Logic & Toggles -->
+  <!-- Supabase Integration Script -->
   <script>
-    function handleServiceChange() {
-      const selectElement = document.getElementById('serviceType');
-      const selectedValues = Array.from(selectElement.selectedOptions).map(option => option.value);
+    const supabaseUrl = 'https://mfguyecypmnimhdqfavv.supabase.co';
+    const supabaseKey = 'sb_publishable_OwajFKgzdeJkQLd4Spdw_A_BmiOnnU2';
+    const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-      const t1Sec = document.getElementById('t1PersonalSection');
-      const t1bSec = document.getElementById('t1BusinessSection');
-      const t2Sec = document.getElementById('t2CorporateSection');
-      const invSec = document.getElementById('investmentSection');
+    document.getElementById('taxInquiryForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-      // Clear required flags first
-      const clearReq = (ids) => ids.forEach(id => document.getElementById(id).removeAttribute('required'));
-      clearReq(['t1_taxYears', 't1_sin', 't1_dob', 't1_maritalStatus', 't1_citizenship', 't1_address']);
-      clearReq(['t1b_taxYears', 't1b_sin', 't1b_dob', 't1b_maritalStatus', 't1b_citizenship', 't1b_structure', 't1b_businessName', 't1b_startDate', 't1b_fiscalYear', 't1b_address']);
-      clearReq(['t2_taxYears', 't2_corpName', 't2_businessNumber', 't2_incorpDate', 't2_fiscalEnd', 't2_corpDetails']);
+      const submitButton = e.target.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
 
-      // Check selections
-      const hasT1 = selectedValues.includes('T1 Personal Tax');
-      const hasT1Biz = selectedValues.includes('T1 Personal & Business');
-      const hasT2 = selectedValues.includes('T2 Corporate Tax');
+      try {
+        const fileInput = document.getElementById('documentUpload');
+        let documentPath = null;
 
-      // T1 Personal Section Toggle & Validation
-      if (hasT1) {
-        t1Sec.classList.remove('hidden');
-        ['t1_taxYears', 't1_sin', 't1_dob', 't1_maritalStatus', 't1_citizenship', 't1_address'].forEach(id => document.getElementById(id).setAttribute('required', 'true'));
-      } else {
-        t1Sec.classList.add('hidden');
+        // 1. Upload file securely if provided
+        if (fileInput.files.length > 0) {
+          const file = fileInput.files[0];
+          const fileExt = file.name.split('.').pop();
+          const fileName = `${Date.now()}_${Math.random().toString(36).substring(2)}.${fileExt}`;
+          const filePath = `client-uploads/${fileName}`;
+
+          const { error: uploadError } = await _supabase.storage
+            .from('tax-documents')
+            .upload(filePath, file);
+
+          if (uploadError) throw uploadError;
+          documentPath = filePath;
+        }
+
+        // 2. Gather form data payload
+        const formData = {
+          full_name: document.getElementById('fullName').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          services_needed: document.getElementById('servicesNeeded').value,
+          tax_years: document.getElementById('taxYears').value,
+          sin: document.getElementById('sinNumber').value,
+          dob: document.getElementById('dob').value || null,
+          marital_status: document.getElementById('maritalStatus').value,
+          address: document.getElementById('address').value,
+          message: document.getElementById('message').value,
+          document_path: documentPath
+        };
+
+        // 3. Insert record into main Supabase table
+        const { error: dbError } = await _supabase
+          .from('client_inquiries')
+          .insert([formData]);
+
+        if (dbError) throw dbError;
+
+        alert('Inquiry submitted successfully! We will be in touch soon.');
+        e.target.reset();
+
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting your form. Please try again.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit Inquiry';
       }
-
-      // T1 Personal & Business Section Toggle & Validation
-      if (hasT1Biz) {
-        t1bSec.classList.remove('hidden');
-        ['t1b_taxYears', 't1b_sin', 't1b_dob', 't1b_maritalStatus', 't1b_citizenship', 't1b_structure', 't1b_businessName', 't1b_startDate', 't1b_fiscalYear', 't1b_address'].forEach(id => document.getElementById(id).setAttribute('required', 'true'));
-      } else {
-        t1bSec.classList.add('hidden');
-      }
-
-      // T2 Corporate Section Toggle & Validation
-      if (hasT2) {
-        t2Sec.classList.remove('hidden');
-        ['t2_taxYears', 't2_corpName', 't2_businessNumber', 't2_incorpDate', 't2_fiscalEnd', 't2_corpDetails'].forEach(id => document.getElementById(id).setAttribute('required', 'true'));
-      } else {
-        t2Sec.classList.add('hidden');
-      }
-
-      // Investment section shows if any T1 return is selected
-      if (hasT1 || hasT1Biz) {
-        invSec.classList.remove('hidden');
-      } else {
-        invSec.classList.add('hidden');
-      }
-    }
-
-    function handleMaritalChange(status, prefix) {
-      const container = document.getElementById(prefix + '_maritalChangeContainer');
-      const dateInput = document.getElementById(prefix + '_maritalChangeDate');
-      
-      if (status && status !== 'Single') {
-        container.classList.remove('hidden');
-        dateInput.setAttribute('required', 'true');
-      } else {
-        container.classList.add('hidden');
-        dateInput.removeAttribute('required');
-        dateInput.value = '';
-      }
-    }
-
-    function toggleOtherSource(val) {
-      const container = document.getElementById('other_source_container');
-      const otherInput = document.getElementById('other_source_text');
-      if (val === 'Other') {
-        container.classList.remove('hidden');
-        otherInput.setAttribute('required', 'true');
-      } else {
-        container.classList.add('hidden');
-        otherInput.removeAttribute('required');
-        otherInput.value = '';
-      }
-    }
+    });
   </script>
-
 </body>
 </html>
