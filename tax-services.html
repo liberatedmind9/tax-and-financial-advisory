@@ -43,31 +43,37 @@
       <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
         <div class="text-amber-400 text-2xl mb-3">📄</div>
         <h3 class="text-lg font-bold text-white mb-2">T1 Personal Tax Return</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Accurate and thorough personal tax preparation to ensure you maximize your returns and stay fully compliant with the CRA.</p>
+        <p class="text-slate-400 text-sm leading-relaxed">Accurate personal tax preparation to ensure you maximize returns and stay fully compliant with the CRA.</p>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
+        <div class="text-amber-400 text-2xl mb-3">📁</div>
+        <h3 class="text-lg font-bold text-white mb-2">T1 Personal & Business</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Combined personal and self-employed / sole proprietorship or partnership tax filing solutions.</p>
       </div>
 
       <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
         <div class="text-amber-400 text-2xl mb-3">🏢</div>
         <h3 class="text-lg font-bold text-white mb-2">T2 Corporate Tax Return</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Specialized corporate tax filing and planning designed for small to medium-sized businesses and incorporated professionals.</p>
+        <p class="text-slate-400 text-sm leading-relaxed">Specialized corporate tax filing and planning designed for incorporated small to medium businesses.</p>
       </div>
 
       <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
         <div class="text-amber-400 text-2xl mb-3">🚀</div>
         <h3 class="text-lg font-bold text-white mb-2">Business Setup & CRA Registration</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Helping new entrepreneurs get started on the right foot with proper business setup, incorporation guidance, and CRA account registrations.</p>
+        <p class="text-slate-400 text-sm leading-relaxed">Proper business setup, incorporation guidance, and CRA account registrations for new entrepreneurs.</p>
       </div>
 
       <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
         <div class="text-amber-400 text-2xl mb-3">📊</div>
         <h3 class="text-lg font-bold text-white mb-2">Bookkeeping, Payroll & Accounting</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Complete back-office management including day-to-day bookkeeping, payroll administration, and organized financial accounting.</p>
+        <p class="text-slate-400 text-sm leading-relaxed">Complete back-office management including day-to-day bookkeeping, payroll administration, and accounting.</p>
       </div>
 
-      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur md:col-span-2">
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 backdrop-blur">
         <div class="text-amber-400 text-2xl mb-3">💡</div>
         <h3 class="text-lg font-bold text-white mb-2">Financial Planning & Strategy</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Forward-looking financial guidance to help you manage wealth, structure growth, and secure long-term financial stability for you and your business.</p>
+        <p class="text-slate-400 text-sm leading-relaxed">Forward-looking financial guidance to help you manage wealth and structure long-term growth.</p>
       </div>
     </div>
 
@@ -98,6 +104,7 @@
             <select id="serviceType" name="serviceType" required onchange="handleServiceChange(this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
               <option value="">Select a service...</option>
               <option value="T1 Personal Tax">T1 Personal Tax Return</option>
+              <option value="T1 Personal & Business">T1 Personal & Business</option>
               <option value="T2 Corporate Tax">T2 Corporate Tax Return</option>
               <option value="Business Setup & CRA">Business Setup & CRA Registration</option>
               <option value="Bookkeeping & Payroll">Bookkeeping, Payroll & Accounting</option>
@@ -107,12 +114,96 @@
           </div>
         </div>
 
-        <!-- Conditional Section for Tax Returns -->
-        <div id="taxConditionalSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">Tax Return Details</h3>
+        <!-- CONDITIONAL SECTION: T1 PERSONAL TAX -->
+        <div id="t1PersonalSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal Tax Information</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) Required *</label>
+              <input type="text" id="t1_taxYears" name="t1_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Marital Status *</label>
+              <select id="t1_maritalStatus" name="t1_maritalStatus" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+                <option value="">Select status...</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Common-Law">Common-Law</option>
+                <option value="Separated">Separated</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+              </select>
+            </div>
+          </div>
           <div>
-            <label class="block text-sm font-medium text-slate-300 mb-2">Tax Year(s) Required *</label>
-            <input type="text" id="taxYears" name="taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025, or 2024 & 2025">
+            <label class="block text-sm font-medium text-slate-300 mb-1">Citizenship / Residency Status for Tax Purposes *</label>
+            <input type="text" id="t1_citizenship" name="t1_citizenship" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Canadian Citizen / Permanent Resident">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-300 mb-1">Current Mailing Address *</label>
+            <textarea id="t1_address" name="t1_address" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Street, City, Province, Postal Code"></textarea>
+          </div>
+        </div>
+
+        <!-- CONDITIONAL SECTION: T1 PERSONAL & BUSINESS -->
+        <div id="t1BusinessSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T1 Personal & Self-Employed Business Information</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) Required *</label>
+              <input type="text" id="t1b_taxYears" name="t1b_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Business Structure Type *</label>
+              <select id="t1b_structure" name="t1b_structure" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+                <option value="">Select structure...</option>
+                <option value="Sole Proprietor">Sole Proprietor</option>
+                <option value="Partnership">Partnership</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Registered Business Name *</label>
+              <input type="text" id="t1b_businessName" name="t1b_businessName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Business or Operating Name">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Business Start Date *</label>
+              <input type="text" id="t1b_startDate" name="t1b_startDate" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="MM/YYYY or Date">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-300 mb-1">Fiscal Year / Reporting Period *</label>
+            <input type="text" id="t1b_fiscalYear" name="t1b_fiscalYear" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., Jan 1 to Dec 31">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-300 mb-1">Current Mailing Address *</label>
+            <textarea id="t1b_address" name="t1b_address" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Street, City, Province, Postal Code"></textarea>
+          </div>
+        </div>
+
+        <!-- CONDITIONAL SECTION: T2 CORPORATE TAX -->
+        <div id="t2CorporateSection" class="hidden bg-slate-950/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-semibold text-amber-400 uppercase tracking-wider">T2 Corporate Tax Information</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Tax Year(s) / Period Required *</label>
+              <input type="text" id="t2_taxYears" name="t2_taxYears" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., 2025">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Legal Corporation Name *</label>
+              <input type="text" id="t2_corpName" name="t2_corpName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Inc. / Corp. Name">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Business Number (BN) / CRA Account *</label>
+              <input type="text" id="t2_businessNumber" name="t2_businessNumber" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="9-digit BN (e.g., 123456789RC0001)">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-1">Fiscal Year-End Date *</label>
+              <input type="text" id="t2_fiscalEnd" name="t2_fiscalEnd" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="e.g., December 31">
+            </div>
           </div>
         </div>
 
@@ -162,16 +253,54 @@
   <!-- Script for Conditional Logic & Toggles -->
   <script>
     function handleServiceChange(val) {
-      const taxSection = document.getElementById('taxConditionalSection');
-      const taxYearsInput = document.getElementById('taxYears');
-      
-      if (val === 'T1 Personal Tax' || val === 'T2 Corporate Tax') {
-        taxSection.classList.remove('hidden');
-        taxYearsInput.setAttribute('required', 'true');
-      } else {
-        taxSection.classList.add('hidden');
-        taxYearsInput.removeAttribute('required');
-        taxYearsInput.value = '';
+      const t1Sec = document.getElementById('t1PersonalSection');
+      const t1bSec = document.getElementById('t1BusinessSection');
+      const t2Sec = document.getElementById('t2CorporateSection');
+
+      // Hide all first
+      t1Sec.classList.add('hidden');
+      t1bSec.classList.add('hidden');
+      t2Sec.classList.add('hidden');
+
+      // Remove required attributes from hidden fields
+      document.getElementById('t1_taxYears').removeAttribute('required');
+      document.getElementById('t1_maritalStatus').removeAttribute('required');
+      document.getElementById('t1_citizenship').removeAttribute('required');
+      document.getElementById('t1_address').removeAttribute('required');
+
+      document.getElementById('t1b_taxYears').removeAttribute('required');
+      document.getElementById('t1b_structure').removeAttribute('required');
+      document.getElementById('t1b_businessName').removeAttribute('required');
+      document.getElementById('t1b_startDate').removeAttribute('required');
+      document.getElementById('t1b_fiscalYear').removeAttribute('required');
+      document.getElementById('t1b_address').removeAttribute('required');
+
+      document.getElementById('t2_taxYears').removeAttribute('required');
+      document.getElementById('t2_corpName').removeAttribute('required');
+      document.getElementById('t2_businessNumber').removeAttribute('required');
+      document.getElementById('t2_fiscalEnd').removeAttribute('required');
+
+      // Show relevant section and set required fields
+      if (val === 'T1 Personal Tax') {
+        t1Sec.classList.remove('hidden');
+        document.getElementById('t1_taxYears').setAttribute('required', 'true');
+        document.getElementById('t1_maritalStatus').setAttribute('required', 'true');
+        document.getElementById('t1_citizenship').setAttribute('required', 'true');
+        document.getElementById('t1_address').setAttribute('required', 'true');
+      } else if (val === 'T1 Personal & Business') {
+        t1bSec.classList.remove('hidden');
+        document.getElementById('t1b_taxYears').setAttribute('required', 'true');
+        document.getElementById('t1b_structure').setAttribute('required', 'true');
+        document.getElementById('t1b_businessName').setAttribute('required', 'true');
+        document.getElementById('t1b_startDate').setAttribute('required', 'true');
+        document.getElementById('t1b_fiscalYear').setAttribute('required', 'true');
+        document.getElementById('t1b_address').setAttribute('required', 'true');
+      } else if (val === 'T2 Corporate Tax') {
+        t2Sec.classList.remove('hidden');
+        document.getElementById('t2_taxYears').setAttribute('required', 'true');
+        document.getElementById('t2_corpName').setAttribute('required', 'true');
+        document.getElementById('t2_businessNumber').setAttribute('required', 'true');
+        document.getElementById('t2_fiscalEnd').setAttribute('required', 'true');
       }
     }
 
