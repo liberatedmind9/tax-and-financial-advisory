@@ -67,42 +67,117 @@
     <!-- Supabase Secure Submission Form Container -->
     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl">
       <div class="mb-6 text-center">
-        <h2 class="text-xl font-bold text-white mb-2">Secure Submission Form</h2>
-        <p class="text-xs text-slate-400">All files uploaded here are securely handled and encrypted.</p>
+        <h2 class="text-xl font-bold text-white mb-2">Secure Intake Questionnaire</h2>
+        <p class="text-xs text-slate-400">All information and files uploaded here are securely handled and encrypted.</p>
       </div>
 
       <form id="taxForm" class="space-y-6">
-        <div>
-          <label for="fullName" class="block text-sm font-semibold text-slate-200 mb-2">Full Legal Name *</label>
-          <input type="text" id="fullName" required placeholder="Jane Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+        <!-- Names Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="firstName" class="block text-sm font-semibold text-slate-200 mb-2">First Legal Name *</label>
+            <input type="text" id="firstName" required placeholder="Jane" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+          </div>
+          <div>
+            <label for="middleName" class="block text-sm font-semibold text-slate-200 mb-2">Middle Name(s)</label>
+            <input type="text" id="middleName" placeholder="Marie" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+          </div>
+          <div>
+            <label for="lastName" class="block text-sm font-semibold text-slate-200 mb-2">Last Name *</label>
+            <input type="text" id="lastName" required placeholder="Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+          </div>
         </div>
 
-        <div>
-          <label for="email" class="block text-sm font-semibold text-slate-200 mb-2">Email Address *</label>
-          <input type="email" id="email" required placeholder="jane@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+        <!-- Personal Identifiers -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="dob" class="block text-sm font-semibold text-slate-200 mb-2">Date of Birth *</label>
+            <input type="date" id="dob" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition" />
+          </div>
+          <div>
+            <label for="sin" class="block text-sm font-semibold text-slate-200 mb-2">SIN (Social Insurance Number) *</label>
+            <input type="password" id="sin" required placeholder="000-000-000" maxlength="11" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+          </div>
+          <div>
+            <label for="citizenship" class="block text-sm font-semibold text-slate-200 mb-2">Citizenship Status *</label>
+            <select id="citizenship" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition">
+              <option value="">Select status...</option>
+              <option value="Canadian Citizen">Canadian Citizen</option>
+              <option value="Permanent Resident">Permanent Resident</option>
+              <option value="Work Permit / Temp Resident">Work Permit / Temp Resident</option>
+              <option value="Non-Resident">Non-Resident</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label for="phone" class="block text-sm font-semibold text-slate-200 mb-2">Phone Number</label>
-          <input type="tel" id="phone" placeholder="(555) 000-0000" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+        <!-- Contact Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="email" class="block text-sm font-semibold text-slate-200 mb-2">Email Address *</label>
+            <input type="email" id="email" required placeholder="jane@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-slate-200 mb-2">Phone Number *</label>
+            <input type="tel" id="phone" required placeholder="(555) 000-0000" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+          </div>
         </div>
 
+        <!-- Address -->
         <div>
-          <label for="taxYear" class="block text-sm font-semibold text-slate-200 mb-2">Tax Year *</label>
-          <select id="taxYear" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition">
-            <option value="2025">2025</option>
-            <option value="2024">2024</option>
+          <label for="address" class="block text-sm font-semibold text-slate-200 mb-2">Current Residential Address (Street, City, Province, Postal Code) *</label>
+          <input type="text" id="address" required placeholder="123 Main St, Victoria, BC V8W 2Y2" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+        </div>
+
+        <!-- Marital Status -->
+        <div>
+          <label for="maritalStatus" class="block text-sm font-semibold text-slate-200 mb-2">Marital Status for the Tax Year *</label>
+          <select id="maritalStatus" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition">
+            <option value="">Select status...</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Common-Law">Common-Law</option>
+            <option value="Separated">Separated</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
           </select>
         </div>
 
+        <!-- Tax Years (Multi-select check boxes) -->
         <div>
-          <label for="taxFiles" class="block text-sm font-semibold text-slate-200 mb-2">Upload Tax Slips & Documents (T4s, Receipts, NOA) *</label>
+          <label class="block text-sm font-semibold text-slate-200 mb-2">Tax Year(s) Filing For * (Check all that apply)</label>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-950 border border-slate-800 rounded-lg p-4">
+            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2025" class="accent-amber-400"> 2025</label>
+            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2024" class="accent-amber-400"> 2024</label>
+            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2023" class="accent-amber-400"> 2023</label>
+            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="checkbox" name="taxYears" value="2022" class="accent-amber-400"> 2022 / Prior</label>
+          </div>
+        </div>
+
+        <!-- Document Uploads -->
+        <div>
+          <label for="taxFiles" class="block text-sm font-semibold text-slate-200 mb-2">Upload Tax Slips & Documents (T4s, T5s, Receipts, NOA) *</label>
           <input type="file" id="taxFiles" multiple required accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-slate-950 hover:file:bg-amber-300 transition cursor-pointer" />
         </div>
 
+        <!-- Additional Notes -->
         <div>
           <label for="notes" class="block text-sm font-semibold text-slate-200 mb-2">Additional Comments / Notes</label>
-          <textarea id="notes" rows="4" placeholder="Any specific details about your return..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition"></textarea>
+          <textarea id="notes" rows="3" placeholder="Any specific details about your return..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition"></textarea>
+        </div>
+
+        <!-- Consent Clause -->
+        <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-xs text-slate-400 space-y-3">
+          <p><strong>Declaration & Consent:</strong> I declare that the information provided is accurate and complete to the best of my knowledge, and I authorize Sally Mentorship Ltd to prepare and file my tax return.</p>
+          <label class="flex items-start gap-3 cursor-pointer text-slate-200 font-medium">
+            <input type="checkbox" id="consentCheck" required class="mt-0.5 accent-amber-400">
+            <span>I agree to the declaration and consent terms above *</span>
+          </label>
+        </div>
+
+        <!-- Electronic Signature -->
+        <div>
+          <label for="signature" class="block text-sm font-semibold text-slate-200 mb-2">Client Electronic Signature (Type Full Legal Name as Signature) *</label>
+          <input type="text" id="signature" required placeholder="Jane Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition italic font-serif" />
         </div>
 
         <button type="submit" id="submitBtn" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition shadow-lg cursor-pointer">Submit Documents Securely</button>
@@ -135,12 +210,21 @@
       statusMsg.innerText = "";
 
       try {
+        // Collect checked tax years
+        const selectedYears = Array.from(document.querySelectorAll('input[name="taxYears"]:checked'))
+          .map(cb => cb.value);
+
+        if (selectedYears.length === 0) {
+          throw new Error("Please select at least one tax year.");
+        }
+
         const filesInput = document.getElementById('taxFiles');
         const files = Array.from(filesInput.files);
         const uploadedPaths = [];
 
         const datePrefix = new Date().toISOString().split('T')[0];
-        const sanitizedName = document.getElementById('fullName').value.replace(/[^a-zA-Z0-9]/g, '_');
+        const fullNameStr = `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
+        const sanitizedName = fullNameStr.replace(/[^a-zA-Z0-9]/g, '_');
         const folderPath = `${datePrefix}_${sanitizedName}_${Date.now()}`;
 
         // 1. Upload files to private Supabase bucket
@@ -154,15 +238,15 @@
           uploadedPaths.push(data.path);
         }
 
-        // 2. Save form metadata into Supabase table
+        // 2. Save complete metadata into Supabase table
         const { error: dbError } = await supabaseClient
           .from('tax_submissions')
           .insert([{
-            full_name: document.getElementById('fullName').value,
+            full_name: fullNameStr,
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
-            tax_year: document.getElementById('taxYear').value,
-            notes: document.getElementById('notes').value,
+            tax_year: selectedYears.join(', '),
+            notes: `DOB: ${document.getElementById('dob').value} | SIN: ${document.getElementById('sin').value} | Citizenship: ${document.getElementById('citizenship').value} | Address: ${document.getElementById('address').value} | Marital Status: ${document.getElementById('maritalStatus').value} | Notes: ${document.getElementById('notes').value} | Signature: ${document.getElementById('signature').value}`,
             file_paths: uploadedPaths
           }]);
 
