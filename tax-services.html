@@ -23,7 +23,7 @@
             box-sizing: border-box;
         }
 
-        /* Top Navigation Header matching your exact main site layout */
+        /* Top Navigation Header matching your main site layout */
         .site-header {
             display: flex;
             flex-direction: column;
@@ -47,17 +47,12 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: #e11d48; /* Exact logo brand color box */
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            color: #ffffff;
-            font-weight: bold;
+        /* Real logo image styling to match your main site */
+        .logo-area img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         /* Stacked Navigation Tabs for Mobile (Stacks top-to-bottom) */
@@ -212,7 +207,7 @@
             opacity: 0.9;
         }
 
-        /* Desktop media query: Switches tabs back to side-by-side on larger screens */
+        /* Desktop media query: Switches header back to side-by-side on larger screens */
         @media (min-width: 640px) {
             .site-header {
                 flex-direction: row;
@@ -235,10 +230,10 @@
 </head>
 <body>
 
-    <!-- Top Navigation Header matching your main mentorship page layout -->
+    <!-- Top Navigation Header with your actual logo image -->
     <header class="site-header">
         <a href="index.html" class="logo-area">
-            <div class="logo-icon">SG</div>
+            <img src="logo.png" alt="Sally G Tadina Logo" onerror="this.style.display='none'">
             <span>Sally G Tadina</span>
         </a>
         <nav class="nav-tabs">
@@ -362,7 +357,7 @@
                 </div>
             </div>
 
-            <button type="submit">Submit Inquiry & Book Consultation</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
