@@ -1,284 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tax Services & Financial Advisory | Sally Mentorship Ltd</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <style>
-    :root {
-      --primary: #1e3a8a;
-      --accent: #3b82f6;
-      --bg-color: #f8fafc;
-      --text-color: #334155;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background: white;
-      padding: 1rem 2rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: var(--primary);
-      margin-top: 0;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    .service-card {
-      background: #f1f5f9;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid var(--accent);
-    }
-    .service-card h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      margin-top: 2rem;
-    }
-    label {
-      font-weight: 600;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    input, select, textarea {
-      padding: 0.75rem;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    button[type="submit"] {
-      background: var(--primary);
-      color: white;
-      padding: 0.85rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button[type="submit"]:hover {
-      background: #1e40af;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
+<style>
+  :root {
+    --bg-color: #0f172a;        /* Dark Slate Blue */
+    --card-bg: #1e293b;         /* Lighter Dark Card */
+    --primary: #3b82f6;         /* Vivid Blue Accent */
+    --text-color: #f8fafc;      /* White/Off-White Text */
+    --text-muted: #94a3b8;      /* Light Gray Text */
+    --input-bg: #0f172a;        /* Input Background */
+    --border-color: #334155;    /* Subtle Border */
+  }
 
-  <header>
-    <a href="https://sallygtadina.love/">Sally G Tadina</a>
-    <div>
-      <a href="https://sallygtadina.love/">Human Design</a> | 
-      <a href="https://sallygtadina.love/tax-services.html" style="color: var(--accent);">Tax & Financial</a>
-    </div>
-  </header>
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+  }
 
-  <div class="container">
-    <h1>Income Tax & Financial Advisory</h1>
-    <p>Expert tax preparation, corporate solutions, bookkeeping, and comprehensive financial planning tailored for individuals and growing businesses.</p>
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+  }
 
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>T1 Personal Tax Return</h3>
-        <p>Accurate personal tax preparation to ensure you maximize returns and stay compliant.</p>
-      </div>
-      <div class="service-card">
-        <h3>T2 Corporate Tax Return</h3>
-        <p>Specialized corporate tax filing and planning for small to medium businesses.</p>
-      </div>
-      <div class="service-card">
-        <h3>Bookkeeping & Payroll</h3>
-        <p>Complete back-office management including day-to-day accounts and payroll.</p>
-      </div>
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-color);
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  /* Class to hide conditional fields until triggered */
+  .hidden-fields {
+    display: none;
+  }
+</style>
+
+<div class="form-container">
+  <form id="inquiry-form">
+    <!-- Basic Information -->
+    <label for="full_name">Full Name *</label>
+    <input type="text" id="full_name" required placeholder="John Doe">
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" required placeholder="john@example.com">
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" placeholder="(555) 000-0000">
+
+    <!-- Trigger Field -->
+    <label for="services_needed">Services Needed *</label>
+    <select id="services_needed" required onchange="toggleFollowUpFields()">
+      <option value="">Select a service...</option>
+      <option value="Personal Tax Return">Personal Tax Return</option>
+      <option value="Corporate Tax & Advisory">Corporate Tax & Advisory</option>
+      <option value="Bookkeeping & Payroll">Bookkeeping & Payroll</option>
+      <option value="Tax Audit Support">Tax Audit Support</option>
+    </select>
+
+    <!-- Dynamic Follow-Up Section (Hidden by Default) -->
+    <div id="follow-up-section" class="hidden-fields">
+      <label for="tax_years">Tax Years Needed</label>
+      <input type="text" id="tax_years" placeholder="e.g., 2024, 2025">
+
+      <label for="sin">Social Insurance Number (SIN)</label>
+      <input type="password" id="sin" placeholder="Optional / Secure entry">
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob">
+
+      <label for="marital_status">Marital Status</label>
+      <select id="marital_status">
+        <option value="">Select status...</option>
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Common-law">Common-law</option>
+        <option value="Separated/Divorced">Separated / Divorced</option>
+      </select>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" placeholder="Your residential or business address">
+
+      <label for="file-upload">Upload Supporting Documents (Optional)</label>
+      <input type="file" id="file-upload">
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: -15px; margin-bottom: 20px;">
+        You can attach tax slips (T4, T5), financial statements, or receipts.
+      </p>
+
+      <label for="message">Additional Details / Message</label>
+      <textarea id="message" rows="4" placeholder="Share any specific details or questions..."></textarea>
     </div>
 
-    <h2>Client Portal & Inquiry Form</h2>
-    <p>Submit your details and optional documents to get started with our services.</p>
+    <button type="submit" style="width: 100%; padding: 14px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer;">
+      Submit Inquiry
+    </button>
+  </form>
+</div>
 
-    <form id="taxInquiryForm">
-      <label>
-        Full Legal Name *
-        <input type="text" id="fullName" required placeholder="John Doe">
-      </label>
-
-      <label>
-        Email Address *
-        <input type="email" id="email" required placeholder="john@example.com">
-      </label>
-
-      <label>
-        Phone Number *
-        <input type="tel" id="phone" required placeholder="(555) 000-0000">
-      </label>
-
-      <label>
-        Services Needed *
-        <select id="servicesNeeded" required>
-          <option value="">Select a service...</option>
-          <option value="T1 Personal Tax Return">T1 Personal Tax Return</option>
-          <option value="T1 Personal & Business">T1 Personal & Business</option>
-          <option value="T2 Corporate Tax Return">T2 Corporate Tax Return</option>
-          <option value="Business Setup & CRA Registration">Business Setup & CRA Registration</option>
-          <option value="Bookkeeping, Payroll & Accounting">Bookkeeping, Payroll & Accounting</option>
-          <option value="Financial Planning & Strategy">Financial Planning & Strategy</option>
-          <option value="Other / Multiple Services">Other / Multiple Services</option>
-        </select>
-      </label>
-
-      <label>
-        Tax Years Needed
-        <input type="text" id="taxYears" placeholder="e.g., 2024, 2025">
-      </label>
-
-      <label>
-        Social Insurance Number (SIN)
-        <input type="text" id="sinNumber" placeholder="Optional / Secure entry">
-      </label>
-
-      <label>
-        Date of Birth
-        <input type="date" id="dob">
-      </label>
-
-      <label>
-        Marital Status
-        <select id="maritalStatus">
-          <option value="">Select status...</option>
-          <option value="Single">Single</option>
-          <option value="Married">Married</option>
-          <option value="Common-Law">Common-Law</option>
-          <option value="Other">Other</option>
-        </select>
-      </label>
-
-      <label>
-        Address
-        <input type="text" id="address" placeholder="Your residential or business address">
-      </label>
-
-      <label>
-        Upload Supporting Documents (Optional)
-        <input type="file" id="documentUpload">
-        <small style="color: #64748b; font-weight: normal;">You can attach tax slips (T4, T5), financial statements, or receipts.</small>
-      </label>
-
-      <label>
-        Additional Details / Message
-        <textarea id="message" rows="4" placeholder="Tell us a bit about your situation or goals..."></textarea>
-      </label>
-
-      <button type="submit">Submit Inquiry</button>
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2026 Sally Mentorship Ltd. All rights reserved.
-  </footer>
-
-  <!-- Supabase Integration Script -->
-  <script>
-    const supabaseUrl = 'https://mfguyecypmnimhdqfavv.supabase.co';
-    const supabaseKey = 'sb_publishable_OwajFKgzdeJkQLd4Spdw_A_BmiOnnU2';
-    const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-    document.getElementById('taxInquiryForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const submitButton = e.target.querySelector('button[type="submit"]');
-      submitButton.disabled = true;
-      submitButton.textContent = 'Submitting...';
-
-      try {
-        const fileInput = document.getElementById('documentUpload');
-        let documentPath = null;
-
-        // 1. Upload file securely if provided
-        if (fileInput.files.length > 0) {
-          const file = fileInput.files[0];
-          const fileExt = file.name.split('.').pop();
-          const fileName = `${Date.now()}_${Math.random().toString(36).substring(2)}.${fileExt}`;
-          const filePath = `client-uploads/${fileName}`;
-
-          const { error: uploadError } = await _supabase.storage
-            .from('tax-documents')
-            .upload(filePath, file);
-
-          if (uploadError) throw uploadError;
-          documentPath = filePath;
-        }
-
-        // 2. Gather form data payload
-        const formData = {
-          full_name: document.getElementById('fullName').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          services_needed: document.getElementById('servicesNeeded').value,
-          tax_years: document.getElementById('taxYears').value,
-          sin: document.getElementById('sinNumber').value,
-          dob: document.getElementById('dob').value || null,
-          marital_status: document.getElementById('maritalStatus').value,
-          address: document.getElementById('address').value,
-          message: document.getElementById('message').value,
-          document_path: documentPath
-        };
-
-        // 3. Insert record into main Supabase table
-        const { error: dbError } = await _supabase
-          .from('client_inquiries')
-          .insert([formData]);
-
-        if (dbError) throw dbError;
-
-        alert('Inquiry submitted successfully! We will be in touch soon.');
-        e.target.reset();
-
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('There was an error submitting your form. Please try again.');
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Submit Inquiry';
-      }
-    });
-  </script>
-</body>
-</html>
+<script>
+  function toggleFollowUpFields() {
+    const serviceSelect = document.getElementById('services_needed');
+    const followUpSection = document.getElementById('follow-up-section');
+    
+    // Show section only when a valid service is chosen
+    if (serviceSelect.value !== '') {
+      followUpSection.style.display = 'block';
+    } else {
+      followUpSection.style.display = 'none';
+    }
+  }
+</script>
