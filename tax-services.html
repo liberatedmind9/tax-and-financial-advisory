@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Advisory & Mentorship Portal</title>
+    <title>Tax Advisory, Financial Planning & Accounting Services</title>
     <style>
         :root {
-            --primary-color: #2563eb;
+            --primary-color: #3b82f6;
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: #334155;
+            --accent-glow: rgba(59, 130, 246, 0.15);
         }
 
         body {
@@ -22,61 +23,78 @@
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 650px;
             background: var(--card-bg);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
-        }
-
-        /* Services Tabs - Stacked as a column on mobile */
-        .services-tabs {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .service-tab {
-            background-color: rgba(59, 130, 246, 0.1);
-            border: 1px solid var(--border-color);
-            padding: 12px 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-color);
         }
 
         h2 {
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Services Showcase Grid (Stacked as column on mobile) */
+        .services-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background-color: var(--accent-glow);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .service-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
+            margin-bottom: 6px;
+            font-weight: 600;
             font-size: 0.9rem;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 10px 12px;
+            padding: 12px;
             background-color: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 6px;
@@ -94,13 +112,28 @@
             display: none;
         }
 
+        .consent-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px dashed var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+
+        .consent-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
         button {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
@@ -109,20 +142,30 @@
         }
 
         button:hover {
-            background-color: #1d4ed8;
+            background-color: #2563eb;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Tax Advisory & Services</h2>
+        <h2>Expert Tax & Financial Advisory</h2>
+        <div class="subtitle">Precision tax strategy, proactive financial planning, and seamless accounting built to protect your wealth and elevate your business.</div>
 
-        <!-- Services list stacked in a column on mobile -->
-        <div class="services-tabs">
-            <div class="service-tab">Mentorship Program</div>
-            <div class="service-tab">Income Tax & Advisory</div>
-            <div class="service-tab">Corporate Tax & Bookkeeping</div>
+        <!-- Service Descriptions Showcase -->
+        <div class="services-showcase">
+            <div class="service-card">
+                <h3>Income Tax & Advisory (Personal & Corporate)</h3>
+                <p>Maximize your refunds and minimize corporate tax liability with tailored strategies designed for individuals, growing companies, and multi-entity businesses.</p>
+            </div>
+            <div class="service-card">
+                <h3>Financial Planning & Wealth Strategy</h3>
+                <p>Forward-thinking guidance focused on long-term growth, asset protection, retirement structuring, and secure financial positioning.</p>
+            </div>
+            <div class="service-card">
+                <h3>Bookkeeping, Payroll & Full-Cycle Accounting</h3>
+                <p>Reliable, pristine financial recordkeeping, precise payroll management, and accounting systems that keep your operations audit-ready year-round.</p>
+            </div>
         </div>
 
         <form id="tax-form">
@@ -142,17 +185,18 @@
             </div>
 
             <div class="form-group">
-                <label for="services_needed">Services Needed *</label>
-                <select id="services_needed" required onchange="toggleFollowUps()">
+                <label for="services_needed">Primary Service Needed *</label>
+                <select id="services_needed" required onchange="toggleSections()">
                     <option value="">Select a service...</option>
+                    <option value="Personal Tax Return">Personal Tax Return & Advisory</option>
+                    <option value="Corporate Tax">Corporate Tax & Business Advisory</option>
+                    <option value="Financial Planning">Financial Planning & Wealth Strategy</option>
+                    <option value="Bookkeeping & Payroll">Bookkeeping, Payroll & Accounting</option>
                     <option value="Mentorship">Mentorship Program</option>
-                    <option value="Personal Tax">Personal Tax Return</option>
-                    <option value="Corporate Tax">Corporate Tax & Advisory</option>
-                    <option value="Bookkeeping">Bookkeeping & Payroll</option>
                 </select>
             </div>
 
-            <!-- Follow-up fields hidden until service is selected -->
+            <!-- Follow-up details hidden until service is chosen -->
             <div id="follow-up-fields" class="hidden-fields">
                 <div class="form-group">
                     <label for="tax_years">Tax Years Needed</label>
@@ -160,7 +204,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="sin">Social Insurance Number (SIN)</label>
+                    <label for="sin">Social Insurance Number (SIN) / Business Number</label>
                     <input type="password" id="sin" placeholder="Optional / Secure entry">
                 </div>
 
@@ -181,34 +225,60 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" placeholder="Your address">
+                    <label for="address">Residential / Business Address</label>
+                    <input type="text" id="address" placeholder="Enter your address">
                 </div>
 
                 <div class="form-group">
-                    <label for="document">Upload Supporting Documents</label>
+                    <label for="document">Upload Supporting Documents (Optional)</label>
                     <input type="file" id="document">
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Additional Details / Message</label>
-                    <textarea id="message" rows="3" placeholder="Any extra details..."></textarea>
+                    <label for="message">Additional Details / Goals</label>
+                    <textarea id="message" rows="3" placeholder="Tell me about your financial goals or specific tax challenges..."></textarea>
                 </div>
             </div>
 
-            <button type="submit">Submit Inquiry</button>
+            <!-- Conditional Tax Return Consent & Signature Section -->
+            <div id="tax-consent-section" class="hidden-fields">
+                <div class="consent-box">
+                    <p><strong>Tax Return Authorization & E-File Consent:</strong> By signing below, you authorize us to prepare and file your tax return(s) with the respective tax authorities on your behalf, and certify that all provided information is accurate and complete to the best of your knowledge.</p>
+                    
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label for="client_signature">Digital Signature (Type Full Legal Name) *</label>
+                        <input type="text" id="client_signature" placeholder="e.g., Johnathan M. Doe">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Submit Inquiry & Book Consultation</button>
         </form>
     </div>
 
     <script>
-        function toggleFollowUps() {
-            const serviceSelect = document.getElementById('services_needed');
+        function toggleSections() {
+            const serviceSelect = document.getElementById('services_needed').value;
             const followUpFields = document.getElementById('follow-up-fields');
+            const consentSection = document.getElementById('tax-consent-section');
+            const signatureInput = document.getElementById('client_signature');
             
-            if (serviceSelect.value !== "") {
+            if (serviceSelect !== "") {
                 followUpFields.style.display = "block";
             } else {
                 followUpFields.style.display = "none";
+                consentSection.style.display = "none";
+                signatureInput.required = false;
+                return;
+            }
+
+            // Show signature and consent box specifically when tax return services are selected
+            if (serviceSelect.includes("Tax Return") || serviceSelect.includes("Corporate Tax")) {
+                consentSection.style.display = "block";
+                signatureInput.required = true;
+            } else {
+                consentSection.style.display = "none";
+                signatureInput.required = false;
             }
         }
     </script>
