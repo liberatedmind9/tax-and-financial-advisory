@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sally Mentorship Ltd - Tax Services & Client Portal</title>
+    <title>Sally G Tadina - Income Tax and Financial Advisory</title>
     <style>
         :root {
-            --primary-color: #3b82f6;
-            --bg-color: #0b0f19;         /* Deep Mentorship Brand Dark */
-            --card-bg: #131b2e;          /* Rich Card Surface */
-            --text-color: #f1f5f9;       /* Crisp White/Silver Text */
-            --text-muted: #94a3b8;       /* Subtle Slate Muted */
-            --border-color: #1e293b;     /* Refined Dark Border */
-            --accent-glow: rgba(59, 130, 246, 0.12);
+            --primary-color: #f59e0b;     /* Matching your gold/amber brand accent */
+            --bg-color: #0b0f19;         /* Dark site background */
+            --card-bg: #131b2e;          /* Dark card surface */
+            --text-color: #f1f5f9;       /* White text */
+            --text-muted: #94a3b8;       /* Muted text */
+            --border-color: #1e293b;     /* Border color */
         }
 
         body {
@@ -20,111 +19,147 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 24px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            padding: 16px;
             box-sizing: border-box;
         }
 
+        /* Top Navigation Header matching your screenshot */
+        .site-header {
+            display: flex;
+            flex-direction: column; /* Stacks logo and tabs vertically on mobile */
+            align-items: flex-start;
+            gap: 14px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background: #e11d48; /* Brand accent logo box */
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Stacked Navigation Tabs for Mobile */
+        .nav-tabs {
+            display: flex;
+            flex-direction: column; /* Stacked one on top of the other */
+            gap: 8px;
+            width: 100%;
+        }
+
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .nav-tab.active {
+            color: #ffffff;
+            border-color: var(--primary-color);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        /* Main Form Container */
         .container {
             width: 100%;
-            max-width: 680px;
+            max-width: 650px;
             background: var(--card-bg);
-            padding: 36px;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
+            margin: 0 auto;
         }
 
-        /* Main Mentorship Site Heading */
-        .main-brand-header {
+        .portal-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
-        .main-brand-header h1 {
-            margin: 0 0 8px 0;
-            font-size: 2.2rem;
+        .portal-header h2 {
+            margin: 0 0 6px 0;
+            font-size: 1.5rem;
             color: #ffffff;
-            letter-spacing: -0.5px;
         }
 
-        .main-brand-header p {
+        .portal-header p {
             margin: 0;
             color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         /* Services Showcase */
         .services-showcase {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 35px;
+            gap: 10px;
+            margin-bottom: 25px;
         }
 
         .service-card {
-            background-color: var(--accent-glow);
+            background-color: rgba(245, 158, 11, 0.05);
             border: 1px solid var(--border-color);
-            padding: 16px 18px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 8px;
             text-align: left;
         }
 
         .service-card strong {
             display: block;
             color: var(--primary-color);
-            font-size: 1.02rem;
-            margin-bottom: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 3px;
         }
 
         .service-card span {
-            font-size: 0.88rem;
+            font-size: 0.83rem;
             color: var(--text-muted);
-            line-height: 1.45;
+            line-height: 1.4;
             display: block;
         }
 
-        /* Form Header Section */
-        .form-section-header {
-            text-align: center;
-            margin-bottom: 25px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 25px;
-        }
-
-        .form-section-header h2 {
-            margin: 0 0 6px 0;
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-
-        .form-section-header p {
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         label {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-color);
+            font-size: 0.88rem;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 13px 14px;
+            padding: 11px 12px;
             background-color: var(--bg-color);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 6px;
             color: var(--text-color);
             font-size: 1rem;
             box-sizing: border-box;
@@ -133,7 +168,6 @@
         input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
         }
 
         .hidden-fields {
@@ -143,48 +177,79 @@
         .consent-box {
             background: rgba(11, 15, 25, 0.85);
             border: 1px dashed var(--border-color);
-            padding: 18px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 16px;
         }
 
         .consent-box p {
-            font-size: 0.88rem;
+            font-size: 0.83rem;
             color: var(--text-muted);
             margin-top: 0;
-            margin-bottom: 12px;
-            line-height: 1.5;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         button[type="submit"] {
             width: 100%;
-            padding: 15px;
+            padding: 13px;
             background-color: var(--primary-color);
-            color: white;
+            color: #0b0f19;
             border: none;
             border-radius: 8px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.2s, transform 0.1s;
+            margin-top: 5px;
+            transition: opacity 0.2s;
         }
 
         button[type="submit"]:hover {
-            background-color: #2563eb;
+            opacity: 0.9;
+        }
+
+        /* Desktop media query to place logo and tabs back side-by-side on larger screens */
+        @media (min-width: 640px) {
+            .site-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .nav-tabs {
+                flex-direction: row;
+                width: auto;
+                gap: 15px;
+            }
+            .nav-tab {
+                background: none;
+                border: none;
+                padding: 0;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Navigation Header matching your main site layout -->
+    <header class="site-header">
+        <div class="logo-area">
+            <div class="logo-icon">SG</div>
+            <span>Sally G Tadina</span>
+        </div>
+        <nav class="nav-tabs">
+            <a href="index.html" class="nav-tab">Human Design Mentorship</a>
+            <a href="tax-services.html" class="nav-tab active">Income Tax and Financial Advisory</a>
+        </nav>
+    </header>
+
     <div class="container">
-        <!-- Main Mentorship Brand Header -->
-        <div class="main-brand-header">
-            <h1>Sally Mentorship Ltd</h1>
-            <p>Empowering your business growth, strategic vision, and absolute financial clarity.</p>
+        <!-- Portal Header -->
+        <div class="portal-header">
+            <h2>Client Portal & Tax Inquiry Form</h2>
+            <p>Precision tax strategy, financial planning, bookkeeping, and accounting built to protect and scale your wealth.</p>
         </div>
 
-        <!-- Stacked Mobile-Friendly Service Cards -->
+        <!-- Service Showcases -->
         <div class="services-showcase">
             <div class="service-card">
                 <strong>Income Tax & Advisory (Personal & Corporate)</strong>
@@ -200,13 +265,7 @@
             </div>
         </div>
 
-        <!-- Form Section Header -->
-        <div class="form-section-header">
-            <h2>Client Portal & Tax Inquiry Form</h2>
-            <p>Complete the secure intake below to connect with our advisory team.</p>
-        </div>
-
-        <!-- Main Inquiry Form -->
+        <!-- Main Form -->
         <form id="tax-form">
             <div class="form-group">
                 <label for="full_name">Full Name *</label>
@@ -242,13 +301,13 @@
                     <input type="text" id="tax_years" placeholder="e.g., 2024, 2025">
                 </div>
 
-                <!-- Independent SIN Box -->
+                <!-- Separated SIN Box -->
                 <div class="form-group">
                     <label for="sin">Social Insurance Number (SIN)</label>
                     <input type="password" id="sin" placeholder="Optional / Secure personal entry">
                 </div>
 
-                <!-- Independent Business Number Box -->
+                <!-- Separated Business Number Box -->
                 <div class="form-group">
                     <label for="business_number">Business Number (BN)</label>
                     <input type="text" id="business_number" placeholder="Optional / Corporate or Business entry">
@@ -293,7 +352,7 @@
                     
                     <div class="form-group" style="margin-bottom: 0;">
                         <label for="client_signature">Digital Signature (Type Full Legal Name) *</label>
-                        <input type="text" id="client_signature" placeholder="e.g., Sally GTadina">
+                        <input type="text" id="client_signature" placeholder="e.g., Sally G Tadina">
                     </div>
                 </div>
             </div>
