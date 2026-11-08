@@ -6,7 +6,7 @@
     <title>Sally G Tadina - Income Tax and Financial Advisory</title>
     <style>
         :root {
-            --primary-color: #f59e0b;     /* Matching your gold/amber brand accent */
+            --primary-color: #f59e0b;     /* Brand gold/amber accent */
             --bg-color: #0b0f19;         /* Dark site background */
             --card-bg: #131b2e;          /* Dark card surface */
             --text-color: #f1f5f9;       /* White text */
@@ -23,10 +23,10 @@
             box-sizing: border-box;
         }
 
-        /* Top Navigation Header matching your screenshot */
+        /* Top Navigation Header matching your main site layout */
         .site-header {
             display: flex;
-            flex-direction: column; /* Stacks logo and tabs vertically on mobile */
+            flex-direction: column;
             align-items: flex-start;
             gap: 14px;
             padding-bottom: 20px;
@@ -44,23 +44,26 @@
             font-weight: bold;
             font-size: 1.1rem;
             color: #ffffff;
+            text-decoration: none;
         }
 
         .logo-icon {
-            width: 28px;
-            height: 28px;
-            background: #e11d48; /* Brand accent logo box */
+            width: 32px;
+            height: 32px;
+            background: #e11d48; /* Exact logo brand color box */
             border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            color: #ffffff;
+            font-weight: bold;
         }
 
-        /* Stacked Navigation Tabs for Mobile */
+        /* Stacked Navigation Tabs for Mobile (Stacks top-to-bottom) */
         .nav-tabs {
             display: flex;
-            flex-direction: column; /* Stacked one on top of the other */
+            flex-direction: column;
             gap: 8px;
             width: 100%;
         }
@@ -68,13 +71,14 @@
         .nav-tab {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
-            padding: 10px 14px;
+            padding: 11px 14px;
             border-radius: 8px;
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             text-align: center;
+            transition: all 0.2s;
         }
 
         .nav-tab.active {
@@ -208,7 +212,7 @@
             opacity: 0.9;
         }
 
-        /* Desktop media query to place logo and tabs back side-by-side on larger screens */
+        /* Desktop media query: Switches tabs and header back to side-by-side on larger screens */
         @media (min-width: 640px) {
             .site-header {
                 flex-direction: row;
@@ -224,18 +228,19 @@
                 background: none;
                 border: none;
                 padding: 0;
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Header matching your main site layout -->
+    <!-- Top Navigation Header matching your main mentorship page layout -->
     <header class="site-header">
-        <div class="logo-area">
+        <a href="index.html" class="logo-area">
             <div class="logo-icon">SG</div>
             <span>Sally G Tadina</span>
-        </div>
+        </a>
         <nav class="nav-tabs">
             <a href="index.html" class="nav-tab">Human Design Mentorship</a>
             <a href="tax-services.html" class="nav-tab active">Income Tax and Financial Advisory</a>
