@@ -1,207 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tax Advisory & Mentorship Portal</title>
-  <style>
-    :root {
-      --bg-color: #0f172a;        /* Dark Slate Blue */
-      --card-bg: #1e293b;         /* Lighter Dark Card */
-      --primary: #3b82f6;         /* Vivid Blue Accent */
-      --text-color: #f8fafc;      /* White/Off-White Text */
-      --text-muted: #94a3b8;      /* Light Gray Text */
-      --input-bg: #0f172a;        /* Input Background */
-      --border-color: #334155;    /* Subtle Border */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Advisory & Mentorship Portal</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      margin: 0;
-      padding: 20px;
-      line-height: 1.6;
-    }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+        }
 
-    .page-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        /* Services Tabs - Stacked as a column on mobile */
+        .services-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
 
-    /* Navigation Tabs: Column layout on mobile, Row on desktop */
-    .nav-tabs {
-      display: flex;
-      flex-direction: column; /* Stacked column by default for mobile */
-      gap: 12px;
-      margin-bottom: 30px;
-    }
+        .service-tab {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
 
-    @media (min-width: 640px) {
-      .nav-tabs {
-        flex-direction: row; /* Side-by-side row on larger screens */
-      }
-    }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
 
-    .nav-tab-item {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 16px;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: bold;
-      color: var(--text-color);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-    .nav-tab-item span {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: normal;
-      margin-top: 4px;
-    }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
 
-    /* Form Container */
-    .form-container {
-      background: var(--card-bg);
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      border: 1px solid var(--border-color);
-    }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
 
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--text-color);
-    }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      background-color: var(--input-bg);
-      color: var(--text-color);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      margin-bottom: 18px;
-      font-size: 16px; /* Prevents iOS auto-zoom */
-    }
+        .hidden-fields {
+            display: none;
+        }
 
-    input::placeholder, textarea::placeholder {
-      color: var(--text-muted);
-    }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
 
-    .hidden-fields {
-      display: none;
-    }
-
-    button[type="submit"] {
-      width: 100%;
-      padding: 14px;
-      background: var(--primary);
-      color: #ffffff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
+        button:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
 </head>
 <body>
 
-<div class="page-container">
-  
-  <!-- Navigation / Services Overview Tabs (Column on mobile, Row on desktop) -->
-  <div class="nav-tabs">
-    <div class="nav-tab-item">
-      Mentorship Program
-      <span>Business & Tax Strategy Guidance</span>
+    <div class="container">
+        <h2>Tax Advisory & Services</h2>
+
+        <!-- Services list stacked in a column on mobile -->
+        <div class="services-tabs">
+            <div class="service-tab">Mentorship Program</div>
+            <div class="service-tab">Income Tax & Advisory</div>
+            <div class="service-tab">Corporate Tax & Bookkeeping</div>
+        </div>
+
+        <form id="tax-form">
+            <div class="form-group">
+                <label for="full_name">Full Name *</label>
+                <input type="text" id="full_name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" required placeholder="name@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" required placeholder="(555) 000-0000">
+            </div>
+
+            <div class="form-group">
+                <label for="services_needed">Services Needed *</label>
+                <select id="services_needed" required onchange="toggleFollowUps()">
+                    <option value="">Select a service...</option>
+                    <option value="Mentorship">Mentorship Program</option>
+                    <option value="Personal Tax">Personal Tax Return</option>
+                    <option value="Corporate Tax">Corporate Tax & Advisory</option>
+                    <option value="Bookkeeping">Bookkeeping & Payroll</option>
+                </select>
+            </div>
+
+            <!-- Follow-up fields hidden until service is selected -->
+            <div id="follow-up-fields" class="hidden-fields">
+                <div class="form-group">
+                    <label for="tax_years">Tax Years Needed</label>
+                    <input type="text" id="tax_years" placeholder="e.g., 2024, 2025">
+                </div>
+
+                <div class="form-group">
+                    <label for="sin">Social Insurance Number (SIN)</label>
+                    <input type="password" id="sin" placeholder="Optional / Secure entry">
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob">
+                </div>
+
+                <div class="form-group">
+                    <label for="marital_status">Marital Status</label>
+                    <select id="marital_status">
+                        <option value="">Select status...</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Common-law">Common-law</option>
+                        <option value="Divorced">Divorced / Separated</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="Your address">
+                </div>
+
+                <div class="form-group">
+                    <label for="document">Upload Supporting Documents</label>
+                    <input type="file" id="document">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Additional Details / Message</label>
+                    <textarea id="message" rows="3" placeholder="Any extra details..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit">Submit Inquiry</button>
+        </form>
     </div>
-    <div class="nav-tab-item" style="border-color: var(--primary);">
-      Income Tax & Advisory
-      <span>Personal, Corporate & Audit Support</span>
-    </div>
-  </div>
 
-  <!-- Interactive Client Inquiry Form -->
-  <div class="form-container">
-    <form id="inquiry-form">
-      <label for="full_name">Full Name *</label>
-      <input type="text" id="full_name" required placeholder="John Doe">
-
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" required placeholder="john@example.com">
-
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" placeholder="(555) 000-0000">
-
-      <label for="services_needed">Services Needed *</label>
-      <select id="services_needed" required onchange="toggleFollowUpFields()">
-        <option value="">Select a service...</option>
-        <option value="Mentorship & Strategy">Mentorship & Strategy</option>
-        <option value="Personal Tax Return">Personal Tax Return</option>
-        <option value="Corporate Tax & Advisory">Corporate Tax & Advisory</option>
-        <option value="Bookkeeping & Payroll">Bookkeeping & Payroll</option>
-        <option value="Tax Audit Support">Tax Audit Support</option>
-      </select>
-
-      <div id="follow-up-section" class="hidden-fields">
-        <label for="tax_years">Tax Years Needed</label>
-        <input type="text" id="tax_years" placeholder="e.g., 2024, 2025">
-
-        <label for="sin">Social Insurance Number (SIN)</label>
-        <input type="password" id="sin" placeholder="Optional / Secure entry">
-
-        <label for="dob">Date of Birth</label>
-        <input type="date" id="dob">
-
-        <label for="marital_status">Marital Status</label>
-        <select id="marital_status">
-          <option value="">Select status...</option>
-          <option value="Single">Single</option>
-          <option value="Married">Married</option>
-          <option value="Common-law">Common-law</option>
-          <option value="Separated/Divorced">Separated / Divorced</option>
-        </select>
-
-        <label for="address">Address</label>
-        <input type="text" id="address" placeholder="Your residential or business address">
-
-        <label for="file-upload">Upload Supporting Documents (Optional)</label>
-        <input type="file" id="file-upload">
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: -12px; margin-bottom: 18px;">
-          You can attach tax slips (T4, T5), financial statements, or receipts.
-        </p>
-
-        <label for="message">Additional Details / Message</label>
-        <textarea id="message" rows="4" placeholder="Share any specific details or questions..."></textarea>
-      </div>
-
-      <button type="submit">Submit Inquiry</button>
-    </form>
-  </div>
-
-</div>
-
-<script>
-  function toggleFollowUpFields() {
-    const serviceSelect = document.getElementById('services_needed');
-    const followUpSection = document.getElementById('follow-up-section');
-    
-    if (serviceSelect.value !== '') {
-      followUpSection.style.display = 'block';
-    } else {
-      followUpSection.style.display = 'none';
-    }
-  }
-</script>
-
+    <script>
+        function toggleFollowUps() {
+            const serviceSelect = document.getElementById('services_needed');
+            const followUpFields = document.getElementById('follow-up-fields');
+            
+            if (serviceSelect.value !== "") {
+                followUpFields.style.display = "block";
+            } else {
+                followUpFields.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
