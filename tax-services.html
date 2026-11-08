@@ -1,120 +1,193 @@
-<style>
-  :root {
-    --bg-color: #0f172a;        /* Dark Slate Blue */
-    --card-bg: #1e293b;         /* Lighter Dark Card */
-    --primary: #3b82f6;         /* Vivid Blue Accent */
-    --text-color: #f8fafc;      /* White/Off-White Text */
-    --text-muted: #94a3b8;      /* Light Gray Text */
-    --input-bg: #0f172a;        /* Input Background */
-    --border-color: #334155;    /* Subtle Border */
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Advisory & Mentorship Portal</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;        /* Dark Slate Blue */
+      --card-bg: #1e293b;         /* Lighter Dark Card */
+      --primary: #3b82f6;         /* Vivid Blue Accent */
+      --text-color: #f8fafc;      /* White/Off-White Text */
+      --text-muted: #94a3b8;      /* Light Gray Text */
+      --input-bg: #0f172a;        /* Input Background */
+      --border-color: #334155;    /* Subtle Border */
+    }
 
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 20px;
-    line-height: 1.6;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    border: 1px solid var(--border-color);
-  }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
 
-  label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--text-color);
-  }
+    .page-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-  input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--input-bg);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-  }
+    /* Navigation Tabs: Column layout on mobile, Row on desktop */
+    .nav-tabs {
+      display: flex;
+      flex-direction: column; /* Stacked column by default for mobile */
+      gap: 12px;
+      margin-bottom: 30px;
+    }
 
-  input::placeholder, textarea::placeholder {
-    color: var(--text-muted);
-  }
+    @media (min-width: 640px) {
+      .nav-tabs {
+        flex-direction: row; /* Side-by-side row on larger screens */
+      }
+    }
 
-  /* Class to hide conditional fields until triggered */
-  .hidden-fields {
-    display: none;
-  }
-</style>
+    .nav-tab-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: var(--text-color);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
 
-<div class="form-container">
-  <form id="inquiry-form">
-    <!-- Basic Information -->
-    <label for="full_name">Full Name *</label>
-    <input type="text" id="full_name" required placeholder="John Doe">
+    .nav-tab-item span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: normal;
+      margin-top: 4px;
+    }
 
-    <label for="email">Email Address *</label>
-    <input type="email" id="email" required placeholder="john@example.com">
+    /* Form Container */
+    .form-container {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border: 1px solid var(--border-color);
+    }
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" placeholder="(555) 000-0000">
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-color);
+    }
 
-    <!-- Trigger Field -->
-    <label for="services_needed">Services Needed *</label>
-    <select id="services_needed" required onchange="toggleFollowUpFields()">
-      <option value="">Select a service...</option>
-      <option value="Personal Tax Return">Personal Tax Return</option>
-      <option value="Corporate Tax & Advisory">Corporate Tax & Advisory</option>
-      <option value="Bookkeeping & Payroll">Bookkeeping & Payroll</option>
-      <option value="Tax Audit Support">Tax Audit Support</option>
-    </select>
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-size: 16px; /* Prevents iOS auto-zoom */
+    }
 
-    <!-- Dynamic Follow-Up Section (Hidden by Default) -->
-    <div id="follow-up-section" class="hidden-fields">
-      <label for="tax_years">Tax Years Needed</label>
-      <input type="text" id="tax_years" placeholder="e.g., 2024, 2025">
+    input::placeholder, textarea::placeholder {
+      color: var(--text-muted);
+    }
 
-      <label for="sin">Social Insurance Number (SIN)</label>
-      <input type="password" id="sin" placeholder="Optional / Secure entry">
+    .hidden-fields {
+      display: none;
+    }
 
-      <label for="dob">Date of Birth</label>
-      <input type="date" id="dob">
+    button[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
-      <label for="marital_status">Marital Status</label>
-      <select id="marital_status">
-        <option value="">Select status...</option>
-        <option value="Single">Single</option>
-        <option value="Married">Married</option>
-        <option value="Common-law">Common-law</option>
-        <option value="Separated/Divorced">Separated / Divorced</option>
+<div class="page-container">
+  
+  <!-- Navigation / Services Overview Tabs (Column on mobile, Row on desktop) -->
+  <div class="nav-tabs">
+    <div class="nav-tab-item">
+      Mentorship Program
+      <span>Business & Tax Strategy Guidance</span>
+    </div>
+    <div class="nav-tab-item" style="border-color: var(--primary);">
+      Income Tax & Advisory
+      <span>Personal, Corporate & Audit Support</span>
+    </div>
+  </div>
+
+  <!-- Interactive Client Inquiry Form -->
+  <div class="form-container">
+    <form id="inquiry-form">
+      <label for="full_name">Full Name *</label>
+      <input type="text" id="full_name" required placeholder="John Doe">
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" required placeholder="john@example.com">
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="(555) 000-0000">
+
+      <label for="services_needed">Services Needed *</label>
+      <select id="services_needed" required onchange="toggleFollowUpFields()">
+        <option value="">Select a service...</option>
+        <option value="Mentorship & Strategy">Mentorship & Strategy</option>
+        <option value="Personal Tax Return">Personal Tax Return</option>
+        <option value="Corporate Tax & Advisory">Corporate Tax & Advisory</option>
+        <option value="Bookkeeping & Payroll">Bookkeeping & Payroll</option>
+        <option value="Tax Audit Support">Tax Audit Support</option>
       </select>
 
-      <label for="address">Address</label>
-      <input type="text" id="address" placeholder="Your residential or business address">
+      <div id="follow-up-section" class="hidden-fields">
+        <label for="tax_years">Tax Years Needed</label>
+        <input type="text" id="tax_years" placeholder="e.g., 2024, 2025">
 
-      <label for="file-upload">Upload Supporting Documents (Optional)</label>
-      <input type="file" id="file-upload">
-      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: -15px; margin-bottom: 20px;">
-        You can attach tax slips (T4, T5), financial statements, or receipts.
-      </p>
+        <label for="sin">Social Insurance Number (SIN)</label>
+        <input type="password" id="sin" placeholder="Optional / Secure entry">
 
-      <label for="message">Additional Details / Message</label>
-      <textarea id="message" rows="4" placeholder="Share any specific details or questions..."></textarea>
-    </div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob">
 
-    <button type="submit" style="width: 100%; padding: 14px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer;">
-      Submit Inquiry
-    </button>
-  </form>
+        <label for="marital_status">Marital Status</label>
+        <select id="marital_status">
+          <option value="">Select status...</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+          <option value="Common-law">Common-law</option>
+          <option value="Separated/Divorced">Separated / Divorced</option>
+        </select>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Your residential or business address">
+
+        <label for="file-upload">Upload Supporting Documents (Optional)</label>
+        <input type="file" id="file-upload">
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: -12px; margin-bottom: 18px;">
+          You can attach tax slips (T4, T5), financial statements, or receipts.
+        </p>
+
+        <label for="message">Additional Details / Message</label>
+        <textarea id="message" rows="4" placeholder="Share any specific details or questions..."></textarea>
+      </div>
+
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </div>
+
 </div>
 
 <script>
@@ -122,7 +195,6 @@
     const serviceSelect = document.getElementById('services_needed');
     const followUpSection = document.getElementById('follow-up-section');
     
-    // Show section only when a valid service is chosen
     if (serviceSelect.value !== '') {
       followUpSection.style.display = 'block';
     } else {
@@ -130,3 +202,6 @@
     }
   }
 </script>
+
+</body>
+</html>
