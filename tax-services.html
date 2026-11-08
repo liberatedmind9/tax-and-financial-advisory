@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Advisory, Financial Planning & Accounting Services</title>
+    <title>Client Portal & Tax Inquiry Form</title>
     <style>
         :root {
             --primary-color: #3b82f6;
@@ -37,48 +37,52 @@
             border: 1px solid var(--border-color);
         }
 
-        h2 {
-            margin-top: 0;
-            margin-bottom: 8px;
+        /* Portal Header & Tabs */
+        .portal-header {
             text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .portal-header h2 {
+            margin: 0 0 6px 0;
             font-size: 1.8rem;
             color: #ffffff;
         }
 
-        .subtitle {
-            text-align: center;
+        .portal-header p {
+            margin: 0;
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 25px;
             line-height: 1.5;
         }
 
-        /* Services Showcase Grid (Stacked as column on mobile) */
-        .services-showcase {
+        .services-tabs {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 10px;
+            margin-bottom: 25px;
         }
 
-        .service-card {
+        .service-tab {
             background-color: var(--accent-glow);
             border: 1px solid var(--border-color);
-            padding: 16px;
+            padding: 14px;
             border-radius: 8px;
+            text-align: left;
         }
 
-        .service-card h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.05rem;
+        .service-tab strong {
+            display: block;
             color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 4px;
         }
 
-        .service-card p {
-            margin: 0;
-            font-size: 0.88rem;
+        .service-tab span {
+            font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.4;
+            display: block;
         }
 
         .form-group {
@@ -125,6 +129,7 @@
             color: var(--text-muted);
             margin-top: 0;
             margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         button {
@@ -149,25 +154,29 @@
 <body>
 
     <div class="container">
-        <h2>Expert Tax & Financial Advisory</h2>
-        <div class="subtitle">Precision tax strategy, proactive financial planning, and seamless accounting built to protect your wealth and elevate your business.</div>
+        <!-- Portal Header -->
+        <div class="portal-header">
+            <h2>Client Portal & Tax Inquiry Form</h2>
+            <p>Precision tax strategy, financial planning, bookkeeping, and accounting built to protect your wealth.</p>
+        </div>
 
-        <!-- Service Descriptions Showcase -->
-        <div class="services-showcase">
-            <div class="service-card">
-                <h3>Income Tax & Advisory (Personal & Corporate)</h3>
-                <p>Maximize your refunds and minimize corporate tax liability with tailored strategies designed for individuals, growing companies, and multi-entity businesses.</p>
+        <!-- Stacked Mobile-Friendly Service Cards/Tabs -->
+        <div class="services-tabs">
+            <div class="service-tab">
+                <strong>Income Tax & Advisory (Personal & Corporate)</strong>
+                <span>Maximize refunds and minimize liability for individuals, growing companies, and multi-entity businesses.</span>
             </div>
-            <div class="service-card">
-                <h3>Financial Planning & Wealth Strategy</h3>
-                <p>Forward-thinking guidance focused on long-term growth, asset protection, retirement structuring, and secure financial positioning.</p>
+            <div class="service-tab">
+                <strong>Financial Planning & Wealth Strategy</strong>
+                <span>Forward-thinking guidance for long-term growth, asset protection, and secure retirement structuring.</span>
             </div>
-            <div class="service-card">
-                <h3>Bookkeeping, Payroll & Full-Cycle Accounting</h3>
-                <p>Reliable, pristine financial recordkeeping, precise payroll management, and accounting systems that keep your operations audit-ready year-round.</p>
+            <div class="service-tab">
+                <strong>Bookkeeping, Payroll & Full-Cycle Accounting</strong>
+                <span>Pristine financial recordkeeping, precise payroll management, and systems that keep your operations audit-ready.</span>
             </div>
         </div>
 
+        <!-- Main Form -->
         <form id="tax-form">
             <div class="form-group">
                 <label for="full_name">Full Name *</label>
@@ -196,16 +205,23 @@
                 </select>
             </div>
 
-            <!-- Follow-up details hidden until service is chosen -->
+            <!-- Follow-up fields hidden until service is chosen -->
             <div id="follow-up-fields" class="hidden-fields">
                 <div class="form-group">
                     <label for="tax_years">Tax Years Needed</label>
                     <input type="text" id="tax_years" placeholder="e.g., 2024, 2025">
                 </div>
 
+                <!-- Separated SIN Box -->
                 <div class="form-group">
-                    <label for="sin">Social Insurance Number (SIN) / Business Number</label>
-                    <input type="password" id="sin" placeholder="Optional / Secure entry">
+                    <label for="sin">Social Insurance Number (SIN)</label>
+                    <input type="password" id="sin" placeholder="Optional / Secure entry (Personal)">
+                </div>
+
+                <!-- Separated Business Number Box -->
+                <div class="form-group">
+                    <label for="business_number">Business Number (BN)</label>
+                    <input type="text" id="business_number" placeholder="Optional / Corporate or Business entry">
                 </div>
 
                 <div class="form-group">
@@ -245,7 +261,7 @@
                 <div class="consent-box">
                     <p><strong>Tax Return Authorization & E-File Consent:</strong> By signing below, you authorize us to prepare and file your tax return(s) with the respective tax authorities on your behalf, and certify that all provided information is accurate and complete to the best of your knowledge.</p>
                     
-                    <div class="form-group" style="margin-bottom: 10px;">
+                    <div class="form-group" style="margin-bottom: 0;">
                         <label for="client_signature">Digital Signature (Type Full Legal Name) *</label>
                         <input type="text" id="client_signature" placeholder="e.g., Johnathan M. Doe">
                     </div>
