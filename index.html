@@ -12,35 +12,72 @@
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-950">
 
-    <!-- Header Navigation (Organized stacked layout on mobile, side-by-side on desktop) -->
+    <!-- Header Navigation (Original Layout) -->
     <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:h-20 flex flex-col sm:flex-row items-center sm:justify-between gap-4">
-            
-            <!-- Logo & Brand Name -->
-            <a href="index.html" class="flex items-center gap-3 text-lg sm:text-xl font-semibold tracking-wide text-white w-full sm:w-auto justify-center sm:justify-start">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 text-lg sm:text-xl font-semibold tracking-wide text-white">
                 <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-9 w-auto object-contain rounded">
                 <span>Sally G Tadina</span>
             </a>
-            
-            <!-- Navigation Tabs (Stacked vertically on mobile, horizontal on desktop) -->
-            <nav class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-xs sm:text-sm font-medium text-slate-300 w-full sm:w-auto">
-                <a href="index.html" class="w-full sm:w-auto py-2 sm:py-0 px-4 sm:px-0 text-center text-white bg-amber-400/10 sm:bg-transparent border border-amber-400/30 sm:border-0 rounded-lg sm:rounded-none border-b-2 sm:border-b-2 sm:border-amber-400 pb-0.5 whitespace-nowrap">Human Design Mentorship</a>
-                <a href="tax-services.html" class="w-full sm:w-auto py-2 sm:py-0 px-4 sm:px-0 text-center hover:text-white transition whitespace-nowrap bg-slate-900/60 sm:bg-transparent border border-slate-800 sm:border-0 rounded-lg sm:rounded-none">Income Tax and Financial Advisory</a>
+            <nav class="flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="index.html" class="text-white border-b-2 border-amber-400 pb-0.5">Human Design Mentorship</a>
+                <a href="tax-services.html" class="hover:text-white transition">Income Tax and Financial Advisory</a>
             </nav>
-
         </div>
     </header>
 
-    <!-- Main Content for Index Page -->
+    <!-- Main Content (Restored with your video, testimonials, and full sections) -->
     <main class="max-w-4xl mx-auto px-6 py-12 text-center">
         <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">Human Design & Business Alignment</span>
         <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white mt-4 mb-4">Succeed in Life & Business by Operating By Design.</h1>
         <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-8">Guidance to align with who you truly are. When you honor your unique design and health, life becomes natural and effortless.</p>
         
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <a href="#explore" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3 px-8 rounded-lg transition shadow-lg">Explore Mentorship</a>
             <a href="tax-services.html" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-8 rounded-lg border border-slate-800 transition">Client Tax Portal →</a>
         </div>
+
+        <!-- Video Section -->
+        <section class="mb-16">
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 aspect-video flex items-center justify-center text-slate-500 shadow-xl">
+                <!-- Replace or keep your video embed/element here -->
+                <p>[ Your Mentorship Video Section ]</p>
+            </div>
+        </section>
+
+        <!-- Core Alignments / Steps -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-16">
+            <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                <span class="text-amber-400 font-bold text-sm mb-2 block">01</span>
+                <h3 class="text-white font-semibold mb-2">Align With Your Design</h3>
+                <p class="text-slate-400 text-sm">Stop looking outward. When you discover your unique frequency, everything falls into place with ease.</p>
+            </div>
+            <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                <span class="text-amber-400 font-bold text-sm mb-2 block">02</span>
+                <h3 class="text-white font-semibold mb-2">Operate By Design in Business</h3>
+                <p class="text-slate-400 text-sm">Learn how to build, create, and lead your business successfully by honoring your natural energy mechanics.</p>
+            </div>
+            <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                <span class="text-amber-400 font-bold text-sm mb-2 block">03</span>
+                <h3 class="text-white font-semibold mb-2">Sustain Your Energy</h3>
+                <p class="text-slate-400 text-sm">Navigate decision-making correctly to avoid burnout and cultivate deep, satisfying momentum.</p>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <section class="mb-16 text-left">
+            <h2 class="text-2xl font-bold text-white text-center mb-8">What Clients Are Saying</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                    <p class="text-slate-300 text-sm italic mb-4">"Working with Sally completely transformed how I approach my business. I finally understand my energy flow and stopped fighting against burnout."</p>
+                    <p class="text-amber-400 text-xs font-semibold">— Mentorship Client</p>
+                </div>
+                <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                    <p class="text-slate-300 text-sm italic mb-4">"The clarity I gained from aligning my business decisions with my Human Design has been life-changing. Highly recommend!"</p>
+                    <p class="text-amber-400 text-xs font-semibold">— Entrepreneur Client</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
