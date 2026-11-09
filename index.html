@@ -3,181 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sally G Tadina - Human Design Mentorship & Financial Advisory</title>
+    <title>Sally Mentorship Ltd - Human Design & Business Alignment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0b0c16;
-            --card-bg: #131426;
-            --text-color: #e2e8f0;
-            --text-muted: #94a3b8;
-            --gold-color: #fbbf24;
-            --gold-hover: #f59e0b;
-            --badge-bg: #1e1b18;
-            --badge-border: #d4af37;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-        }
-
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-            background-color: var(--bg-color);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: #ffffff;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .nav-logo {
-            width: 35px;
-            height: 35px;
-            border-radius: 4px;
-            object-fit: cover;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a.active {
-            color: #ffffff;
-            border-bottom: 2px solid var(--gold-color);
-            padding-bottom: 2px;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        /* Hero Section */
-        .container {
-            max-width: 750px;
-            margin: 3rem auto 5rem auto;
-            padding: 0 1.5rem;
-            text-align: center;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: #1a1714;
-            color: var(--gold-color);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 1.8rem;
-        }
-
-        h1 {
-            font-size: 2.7rem;
-            color: #ffffff;
-            margin-bottom: 2rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .hero-text {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 1.8rem;
-            text-align: center;
-        }
-
-        /* Action Button */
-        .btn-explore {
-            display: block;
-            width: 100%;
-            background-color: var(--gold-color);
-            color: #0b0c16;
-            text-align: center;
-            padding: 1rem 0;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 3rem;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 4px 14px rgba(251, 191, 36, 0.2);
-        }
-
-        .btn-explore:hover {
-            background-color: var(--gold-hover);
-            transform: translateY(-1px);
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            .nav-links {
-                gap: 1.2rem;
-            }
-            h1 {
-                font-size: 2.1rem;
-            }
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
     </style>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-950">
 
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html" class="nav-brand">
-            Sally G Tadina
-        </a>
-        <div class="nav-links">
-            <a href="mentorship.html" class="active">Human Design Mentorship</a>
-            <a href="tax-services.html">Income Tax and Financial Advisory</a>
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 text-lg sm:text-xl font-semibold tracking-wide text-white">
+                <img src="logo.jpg" alt="Sally Mentorship Ltd Logo" class="h-9 w-auto object-contain rounded">
+                <span>Sally G Tadina</span>
+            </a>
+            <nav class="flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="mentorship.html" class="text-white border-b-2 border-amber-400 pb-0.5">Human Design Mentorship</a>
+                <a href="tax-services.html" class="hover:text-white transition">Income Tax and Financial Advisory</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Hero Content -->
-    <div class="container">
-        <div class="badge">Human Design & Business Alignment</div>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-12 text-center">
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">Human Design & Business Alignment</span>
         
-        <h1>Succeed in Life & Business by Operating By Design.</h1>
-
-        <p class="hero-text">
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white mt-4 mb-4">Succeed in Life & Business by Operating By Design.</h1>
+        
+        <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-6">
             Naturally, behind every action is a decision. When you're in alignment with who you truly are, your decision leads you to what is correct and healthy for you. As a 2/4 Mental Projector carrying the Cross of Consciousness, my own journey through Human Design transformed how I understand human behavior and experience life with greater joy and ease.
         </p>
-
-        <p class="hero-text">
+        
+        <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
             Think of this page as a digital sanctuary and an energetic marketplace. A space where inherited conditioning is stripped away, natural human gifts are recognized, and real-life friction finds genuine, grounded solutions. Whether through spatial harmony, wellness integration, or personal authority—we are here to trade lack for true alignment. Whether navigating your personal life, relationships, career, or business, my mentorship focuses on three essential pillars to help you thrive.
         </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+            <a href="mentorship.html" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3 px-8 rounded-lg transition shadow-lg">Explore Mentorship</a>
+            <a href="tax-services.html" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-8 rounded-lg border border-slate-800 transition">Client Tax Portal →</a>
+        </div>
 
-        <!-- Explore Mentorship Button linked to mentorship.html -->
-        <a href="mentorship.html" class="btn-explore">Explore Mentorship</a>
-    </div>
+        <!-- Video Section with your YouTube video embedded -->
+        <section class="mb-16">
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-2 aspect-video shadow-xl overflow-hidden">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s1xcAc0ovY" title="Stop Being a Do-Aholic!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-xl w-full h-full"></iframe>
+            </div>
+        </section>
+
+        <!-- Core Pillars / Guidance Framework -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-20">
+            <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                <span class="text-amber-400 font-bold text-sm mb-2 block">01 / The Body</span>
+                <h3 class="text-white font-semibold mb-2">Physical Nourishment & Energy</h3>
+                <p class="text-slate-400 text-sm">Implement how to nourish yourself physically, how to best use your unique energy, and discover which environments are truly healthy for you.</p>
+            </div>
+            <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                <span class="text-amber-400 font-bold text-sm mb-2 block">02 / The Mind</span>
+                <h3 class="text-white font-semibold mb-2">Empowering Beliefs</h3>
+                <p class="text-slate-400 text-sm">Instill the supportive beliefs that help you experience life in a positive, easy way—no matter where you are at in your personal or professional journey.</p>
+            </div>
+            <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                <span class="text-amber-400 font-bold text-sm mb-2 block">03 / The Soul</span>
+                <h3 class="text-white font-semibold mb-2">Soul's Purpose & Coherence</h3>
+                <p class="text-slate-400 text-sm">Be guided to your soul's true purpose. When body, mind, and soul are coherent, you unlock effortless success and satisfaction in relationships, wealth, and career.</p>
+            </div>
+        </div>
+
+        <!-- Booking / Explore Mentorship Sessions Section -->
+        <section id="explore-sessions" class="mb-20 text-left scroll-mt-28">
+            <div class="text-center mb-10">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">Booking & Sessions</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mt-3">Choose Your Mentorship Experience</h2>
+                <p class="text-slate-400 text-sm mt-2 max-w-xl mx-auto">Select a session tailored to your current stage of growth and schedule your time with complete ease.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Session 1 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-400/50 transition">
+                    <div>
+                        <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider block mb-1">Foundational</span>
+                        <h3 class="text-white font-bold text-lg mb-2">Human Design Blueprint</h3>
+                        <p class="text-slate-400 text-sm mb-6">A deep dive into your unique type, authority, and strategy to help you stop resisting and start operating by design.</p>
+                    </div>
+                    <a href="mentorship.html" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-2.5 px-4 rounded-lg text-center transition text-sm">Explore Details</a>
+                </div>
+
+                <!-- Session 2 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-400/50 transition">
+                    <div>
+                        <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider block mb-1">Comprehensive</span>
+                        <h3 class="text-white font-bold text-lg mb-2">Body, Mind & Soul Coherence</h3>
+                        <p class="text-slate-400 text-sm mb-6">A holistic mentorship container aligning your physical energy, empowering beliefs, and soul's true purpose for deep satisfaction.</p>
+                    </div>
+                    <a href="mentorship.html" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-2.5 px-4 rounded-lg text-center transition text-sm">Explore Details</a>
+                </div>
+
+                <!-- Session 3 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-400/50 transition">
+                    <div>
+                        <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider block mb-1">Business & Wealth</span>
+                        <h3 class="text-white font-bold text-lg mb-2">Business Alignment & Strategy</h3>
+                        <p class="text-slate-400 text-sm mb-6">Integrate your inner authority with structured business systems, avoiding burnout and unlocking sustainable momentum.</p>
+                    </div>
+                    <a href="mentorship.html" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-2.5 px-4 rounded-lg text-center transition text-sm">Explore Details</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="mb-16 text-left">
+            <h2 class="text-2xl font-bold text-white text-center mb-8">What Clients Are Saying</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                    <p class="text-slate-300 text-sm italic mb-4">"Working with Sally completely transformed how I approach my business. I finally understand my energy flow and stopped fighting against burnout."</p>
+                    <p class="text-amber-400 text-xs font-semibold">— Mentorship Client</p>
+                </div>
+                <div class="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                    <p class="text-slate-300 text-sm italic mb-4">"The clarity I gained from aligning my business decisions with my Human Design has been life-changing. Highly recommend!"</p>
+                    <p class="text-amber-400 text-xs font-semibold">— Entrepreneur Client</p>
+                </div>
+            </div>
+            <!-- Google Business Reviews Link -->
+            <div class="text-center">
+                <a href="https://share.google/mx5QXe8r36rAJ5UKR" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 text-sm font-semibold underline underline-offset-4 transition">
+                    Read more reviews from our clients on Google →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 mt-20 py-8 text-center text-xs text-slate-500">
+        <p>&copy; 2026 Sally Mentorship Ltd. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
